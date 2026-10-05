@@ -21,7 +21,11 @@
 {"@context":"https://schema.org","@type":"Organization","name":"Project Lab Enterprise","alternateName":"بروجكت لاب إنتربرايز",
  "url":"https://www.projectlabenterprise.com/","logo":"https://www.projectlabenterprise.com/assets/logo-full.png",
  "areaServed":{"@type":"Country","name":"Syria"},
- "knowsAbout":["Oil and petroleum","Phosphate and mining","Electrical infrastructure","Real estate development","Logistics and supply chain"]}
+ "knowsAbout":["Oil and petroleum","Phosphate and mining","Electrical infrastructure","Real estate development","Logistics and supply chain"],
+ "email":"sales@projectlabenterprise.com",
+ "address":{"@type":"PostalAddress","streetAddress":"Orfali Building, Jaber Bin Hayan Street","addressLocality":"Damascus","addressCountry":"SY"},
+ "contactPoint":[{"@type":"ContactPoint","contactType":"sales","telephone":"+971559327171","areaServed":"AE","email":"sales@projectlabenterprise.com"},
+  {"@type":"ContactPoint","contactType":"sales","telephone":"+963945650008","areaServed":"SY"}]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -259,7 +263,8 @@ body.ar .prog b{transform-origin:right}
 .cinfo{display:grid;grid-template-columns:auto 1fr;gap:14px 28px;margin-top:36px;font-size:16px;align-items:baseline}
 .cinfo .k{font-size:13.5px;color:var(--text-3)}
 .cinfo .v{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:baseline}
-.copy{font:500 12px/1 var(--body);background:none;border:1px solid var(--line-2);color:var(--text-2);border-radius:var(--r);padding:6px 9px;cursor:pointer}
+.copy{font:500 12px/1 var(--body);background:none;border:1px solid var(--line-2);color:var(--text-2);border-radius:var(--r);padding:0 12px;min-height:44px;min-width:56px;cursor:pointer}
+.cinfo{align-items:center}
 .copy:hover{border-color:var(--accent-text);color:var(--text)}
 .cbtns{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
 form.enq{background:var(--raise);border:1px solid var(--line);border-radius:6px;padding:clamp(22px,3vw,36px);display:grid;grid-template-columns:1fr 1fr;gap:18px;box-shadow:0 30px 60px -30px var(--shadow)}
@@ -432,7 +437,7 @@ body.ar .motion-toggle{font-family:var(--arabic)}
         <div class="fld"><label for="f-name" data-i="f.name">Full name</label><input id="f-name" name="name" autocomplete="name" required></div>
         <div class="fld"><label for="f-company" data-i="f.company">Company</label><input id="f-company" name="company" autocomplete="organization"></div>
         <div class="fld"><label for="f-email" data-i="f.email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
-        <div class="fld"><label for="f-phone" data-i="f.phone">Phone or WhatsApp</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+        <div class="fld"><label for="f-phone" data-i="f.phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
         <div class="fld"><label for="f-sector" data-i="f.sector">Sector</label><select id="f-sector" name="sector"></select></div>
         <div class="fld"><label for="f-gov" data-i="f.gov">Governorate</label><select id="f-gov" name="governorate"></select></div>
         <div class="fld full"><label for="f-msg" data-i="f.msg">What would you like to achieve?</label><textarea id="f-msg" name="message" required></textarea></div>
@@ -468,11 +473,14 @@ body.ar .motion-toggle{font-family:var(--arabic)}
 /* ================= EDIT HERE: business details =================
    Leave a value as "" until you have it. Empty values show as marked placeholders. */
 var SITE = {
-  phoneDisplay: "",          // e.g. "+963 11 123 4567"
-  phoneIntl: "",             // e.g. "+963111234567"
-  whatsapp: "",              // international, digits only, e.g. "963912345678"
-  email: "",                 // e.g. "info@projectlab-enterprise.com"
-  address: { en: "", ar: "" },
+  phones: [                 // shown in this order; display = as written, intl = for the call link
+    { key: "k.dxb", display: "+971 55 932 7171", intl: "+971559327171" },
+    { key: "k.syr", display: "+963 945 650 008", intl: "+963945650008" }
+  ],
+  whatsapp: "",              // international, digits only; leave "" to hide WhatsApp everywhere
+  email: "sales@projectlabenterprise.com",
+  address: { en: "Orfali Building, Jaber Bin Hayan Street, Damascus, Syria",
+             ar: "بناء العرفلي، شارع جابر بن حيان، دمشق، سوريا" },
   web3formsKey: ""           // from web3forms.com
 };
 /* Live news via Google News RSS + rss2json. false = curated list only. */
@@ -499,15 +507,15 @@ var T={
   'news.disc':'Headlines link to third-party publishers. Project Lab Enterprise is not responsible for their content.',
   'news.live':'LIVE FEED','news.curated':"EDITOR'S PICKS",'news.all':'All','news.empty':'No headlines in this sector right now. Try All.','news.national':'National',
   'ct.title':'Tell us what you want to build in Syria.','ct.lede':"Share the sector, the governorate and the outcome you're after. We reply directly.",
-  'k.phone':'Phone','k.wa':'WhatsApp','k.email':'Email','k.addr':'Office',
+  'k.phone':'Phone','k.dxb':'Phone, Dubai','k.syr':'Phone, Syria','b.dxb':'Call Dubai','b.syr':'Call Syria','k.wa':'WhatsApp','k.email':'Email','k.addr':'Office',
   'ph.phone':'Phone number to be added','ph.wa':'WhatsApp number to be added','ph.email':'Email to be added','ph.addr':'Office address to be added',
   'b.wa':'Message on WhatsApp','b.call':'Call','b.email':'Email us','b.copy':'Copy','b.copied':'Copied',
-  'f.name':'Full name','f.company':'Company','f.email':'Email','f.phone':'Phone or WhatsApp','f.sector':'Sector','f.gov':'Governorate',
+  'f.name':'Full name','f.company':'Company','f.email':'Email','f.phone':'Phone','f.sector':'Sector','f.gov':'Governorate',
   'f.msg':'What would you like to achieve?','f.send':'Send enquiry','f.sending':'Sending…',
   'f.ok':"Enquiry sent. We'll reply to the email you gave.",
-  'f.err':'The enquiry did not send. Check your connection and try again, or use WhatsApp or email.',
+  'f.err':'The enquiry did not send. Check your connection and try again, or email us directly.',
   'f.missing':'Add your name, a valid email and a message, then send again.',
-  'f.nokey':"The form isn't connected yet. Please use WhatsApp or email for now.",
+  'f.nokey':"The form isn't connected yet. Please email or call us for now.",
   'f.any':'Not decided yet',
   'wa.msg':"Hello Project Lab Enterprise, I'd like to discuss a project in Syria.",
   'wa.sec':"Hello Project Lab Enterprise, I'd like to discuss a {s} project in Syria."
@@ -527,15 +535,15 @@ var T={
   'news.disc':'تحيل العناوين إلى ناشرين خارجيين، ولا تتحمل بروجكت لاب إنتربرايز مسؤولية محتواها.',
   'news.live':'مباشر','news.curated':'مختارات المحرر','news.all':'الكل','news.empty':'لا توجد عناوين في هذا القطاع حاليًا. جرّب «الكل».','news.national':'على المستوى الوطني',
   'ct.title':'أخبرنا بما تريد بناءه في سوريا.','ct.lede':'شاركنا القطاع والمحافظة والنتيجة التي تسعى إليها، وسنرد عليك مباشرة.',
-  'k.phone':'الهاتف','k.wa':'واتساب','k.email':'البريد','k.addr':'المكتب',
+  'k.phone':'الهاتف','k.dxb':'الهاتف، دبي','k.syr':'الهاتف، سوريا','b.dxb':'اتصل بدبي','b.syr':'اتصل بسوريا','k.wa':'واتساب','k.email':'البريد','k.addr':'المكتب',
   'ph.phone':'سيُضاف رقم الهاتف','ph.wa':'سيُضاف رقم واتساب','ph.email':'سيُضاف البريد الإلكتروني','ph.addr':'سيُضاف عنوان المكتب',
   'b.wa':'راسلنا على واتساب','b.call':'اتصل بنا','b.email':'راسلنا بالبريد','b.copy':'نسخ','b.copied':'تم النسخ',
-  'f.name':'الاسم الكامل','f.company':'الشركة','f.email':'البريد الإلكتروني','f.phone':'الهاتف أو واتساب','f.sector':'القطاع','f.gov':'المحافظة',
+  'f.name':'الاسم الكامل','f.company':'الشركة','f.email':'البريد الإلكتروني','f.phone':'الهاتف','f.sector':'القطاع','f.gov':'المحافظة',
   'f.msg':'ما الذي تود تحقيقه؟','f.send':'أرسل الطلب','f.sending':'جارٍ الإرسال…',
   'f.ok':'تم إرسال طلبك. سنرد على بريدك الإلكتروني.',
-  'f.err':'لم يُرسل الطلب. تحقق من الاتصال وحاول مجددًا، أو استخدم واتساب أو البريد الإلكتروني.',
+  'f.err':'لم يُرسل الطلب. تحقق من الاتصال وحاول مجددًا، أو راسلنا مباشرة بالبريد الإلكتروني.',
   'f.missing':'أضف اسمك وبريدًا إلكترونيًا صحيحًا ورسالة، ثم أعد الإرسال.',
-  'f.nokey':'النموذج غير مفعّل بعد. يرجى استخدام واتساب أو البريد الإلكتروني حاليًا.',
+  'f.nokey':'النموذج غير مفعّل بعد. يرجى مراسلتنا بالبريد الإلكتروني أو الاتصال بنا حاليًا.',
   'f.any':'لم يُحدد بعد',
   'wa.msg':'مرحبًا بروجكت لاب إنتربرايز، أود مناقشة مشروع في سوريا.',
   'wa.sec':'مرحبًا بروجكت لاب إنتربرايز، أود مناقشة مشروع في قطاع {s} في سوريا.'
@@ -704,17 +712,17 @@ function observeChapters(){
 
 /* ---------- Contact ---------- */
 function waLink(msg){return SITE.whatsapp?'https://wa.me/'+SITE.whatsapp+'?text='+encodeURIComponent(msg||t('wa.msg')):'#contact'}
-function row(k,val,ph,copy){
-  var v=val?'<span>'+esc(val)+'</span>'+(copy?'<button type="button" class="copy" data-copy="'+esc(val)+'">'+t('b.copy')+'</button>':''):'<span class="todo">'+t(ph)+'</span>';
+function row(k,val,ph,copy,ltr){
+  var v=val?'<span'+(ltr?' dir="ltr"':'')+'>'+esc(val)+'</span>'+(copy?'<button type="button" class="copy" data-copy="'+esc(val)+'">'+t('b.copy')+'</button>':''):'<span class="todo">'+t(ph)+'</span>';
   return '<span class="k">'+t(k)+'</span><span class="v">'+v+'</span>';
 }
 function renderContact(){
   var addr=SITE.address[LANG]||SITE.address.en;
-  document.getElementById('cinfo').innerHTML=row('k.phone',SITE.phoneDisplay,'ph.phone',true)+row('k.wa',SITE.whatsapp?'+'+SITE.whatsapp:'','ph.wa',true)+row('k.email',SITE.email,'ph.email',true)+row('k.addr',addr,'ph.addr',false);
+  document.getElementById('cinfo').innerHTML=(SITE.phones.length?SITE.phones.map(function(p){return row(p.key,p.display,'ph.phone',true,true)}).join(''):row('k.phone','','ph.phone',true))+(SITE.whatsapp?row('k.wa','+'+SITE.whatsapp,'ph.wa',true,true):'')+row('k.email',SITE.email,'ph.email',true,true)+row('k.addr',addr,'ph.addr',false);
   var bt=[];
   if(SITE.whatsapp)bt.push('<a class="btn btn-brass" target="_blank" rel="noopener" href="'+waLink()+'">'+t('b.wa')+'</a>');
-  if(SITE.phoneIntl)bt.push('<a class="btn btn-line" href="tel:'+SITE.phoneIntl+'">'+t('b.call')+'</a>');
-  if(SITE.email)bt.push('<a class="btn btn-line" href="mailto:'+SITE.email+'">'+t('b.email')+'</a>');
+  if(SITE.email)bt.push('<a class="btn '+(SITE.whatsapp?'btn-line':'btn-brass')+'" href="mailto:'+SITE.email+'">'+t('b.email')+'</a>');
+  SITE.phones.forEach(function(p){bt.push('<a class="btn btn-line" href="tel:'+p.intl+'">'+t(p.key.replace('k.','b.'))+'</a>')});
   var cb=document.getElementById('cbtns'); cb.innerHTML=bt.join(''); cb.hidden=!bt.length;
   document.querySelectorAll('[data-copy]').forEach(function(b){b.addEventListener('click',function(){
     var v=b.getAttribute('data-copy');
