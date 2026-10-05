@@ -481,7 +481,7 @@ var SITE = {
   email: "sales@projectlabenterprise.com",
   address: { en: "Orfali Building, Jaber Bin Hayan Street, Damascus, Syria",
              ar: "بناء العرفلي، شارع جابر بن حيان، دمشق، سوريا" },
-  web3formsKey: ""           // from web3forms.com
+  web3formsKey: "7d6cc66f-82e8-428b-ab6a-064b5577713a" // from web3forms.com; enquiries go to the email the key was made with
 };
 /* Live news via Google News RSS + rss2json. false = curated list only. */
 var LIVE_NEWS = true;
@@ -876,7 +876,7 @@ document.getElementById('enq').addEventListener('submit',function(e){
   if(bad.name||bad.email||bad.message){msg.textContent=t('f.missing');msg.classList.add('err');return}
   if(!SITE.web3formsKey){msg.textContent=t('f.nokey');msg.classList.add('err');return}
   if(f.botcheck.checked)return;
-  btn.disabled=true;btn.textContent=t('f.sending');
+  msg.textContent='';btn.disabled=true;btn.textContent=t('f.sending');
   fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
     body:JSON.stringify({access_key:SITE.web3formsKey,subject:'New enquiry: Project Lab Enterprise website',from_name:'Project Lab Enterprise website',
       name:name,company:f.company.value,email:email,phone:f.phone.value,sector:f.sector.value,governorate:f.governorate.value,message:text,language:LANG})})
