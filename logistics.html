@@ -279,7 +279,7 @@ footer .wrap{display:grid;gap:40px}
 .ftop img{width:min(220px,62vw);height:auto}
 .fnav{display:flex;flex-wrap:wrap;gap:22px}
 .fnav a{text-decoration:none}.fnav a:hover{color:var(--text)}
-.fbot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:13px;color:var(--text-3)}
+.fbot{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;font-size:13px;color:var(--text-3)}
 
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
@@ -319,7 +319,7 @@ body.ar .motion-toggle{font-family:var(--arabic)}
 @media (max-width:700px){.motion-toggle{bottom:auto;top:84px}}
 @media (prefers-reduced-motion: reduce){.motion-toggle{display:none}}
 /* Touch targets */
-@media (pointer:coarse),(max-width:760px){.lang{min-height:44px!important}.chip{min-height:44px}.lang{min-height:44px;min-width:44px}.fnav a{display:inline-block;padding-block:12px}}
+@media (pointer:coarse),(max-width:760px){.lang{min-height:44px!important}.chip{min-height:44px}.lang{min-height:44px;min-width:44px}.fnav a,.flegal a{display:inline-block;padding-block:12px}}
 /* About */
 body:not(.ar) .l-ar,body.ar .l-en{display:none}
 .about{border-bottom:1px solid var(--line)}
@@ -328,25 +328,27 @@ body:not(.ar) .l-ar,body.ar .l-en{display:none}
 .about h2{font-size:clamp(38px,5vw,64px);text-transform:uppercase;max-width:14ch}
 body.ar .about h2{font-size:clamp(30px,3.6vw,46px);max-width:none}
 .ab-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:clamp(40px,5vw,64px) 0 0;border-block:1px solid var(--line-2)}
-.ab-facts>div{padding:22px 20px 24px;border-inline-start:1px solid var(--line)}
-.ab-facts>div:first-child{border-inline-start:0;padding-inline-start:0}
+.ab-facts>div{padding:24px 16px 26px;border-inline-start:1px solid var(--line);text-align:center}
+.ab-facts>div:first-child{border-inline-start:0}
+.ab-facts .cnt{font-weight:inherit;font-variant-numeric:tabular-nums}
 .ab-facts dt{font:500 clamp(26px,3vw,40px)/1.05 var(--mono);color:var(--accent-text);letter-spacing:-.01em}
 body.ar .ab-facts dt{font-family:var(--ar-head);font-weight:800;letter-spacing:0}
 .ab-facts dd{margin:10px 0 0;color:var(--text-2);font-size:14.5px;line-height:1.45}
 .ab-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(28px,4vw,56px);margin-top:clamp(48px,6vw,80px)}
 .ab-cols h3,.ab-low h3{font-size:clamp(22px,2.2vw,28px);text-transform:uppercase;margin-bottom:14px}
 body.ar .ab-cols h3,body.ar .ab-low h3{font-size:clamp(19px,1.8vw,23px)}
-.ab-cols p{color:var(--text-2);margin:0 0 12px}
+.ab-cols p{color:var(--text-2);margin:0 0 12px;text-align:justify;text-justify:inter-word;hyphens:auto}
+body.ar .ab-cols p{hyphens:none}
 .ab-low{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);margin-top:clamp(52px,6vw,88px)}
 .ab-dir{margin:0;border-bottom:1px solid var(--line)}
 .ab-dir>div{display:grid;grid-template-columns:minmax(120px,.42fr) 1fr;gap:6px 22px;padding:15px 0;border-top:1px solid var(--line)}
 .ab-dir dt{color:var(--text);font-weight:600}
 .ab-dir dd{margin:0;color:var(--text-2)}
 .ab-dir dd [dir=ltr]{unicode-bidi:isolate}
-@media (max-width:900px){.ab-top,.ab-low{grid-template-columns:1fr}.ab-cols{grid-template-columns:1fr}.ab-facts{grid-template-columns:1fr 1fr}.ab-facts>div:nth-child(3){border-inline-start:0;padding-inline-start:0}.ab-facts>div:nth-child(n+3){border-top:1px solid var(--line)}}
+@media (max-width:900px){.ab-top,.ab-low{grid-template-columns:1fr}.ab-cols{grid-template-columns:1fr}.ab-facts{grid-template-columns:1fr 1fr}.ab-facts>div:nth-child(3){border-inline-start:0}.ab-facts>div:nth-child(n+3){border-top:1px solid var(--line)}}
 @media (max-width:520px){.ab-dir>div{grid-template-columns:1fr}.ab-facts dt{font-size:24px}body.ar .ab-facts dt{font-size:21px}}
 /* Footer legal links + form note */
-.flegal{display:flex;flex-wrap:wrap;gap:6px 20px}
+.flegal{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 24px;order:-1}
 .flegal a{color:var(--text-3);text-decoration:none}.flegal a:hover{color:var(--text)}
 .fnote{flex-basis:100%;margin:0;font-size:13px;color:var(--text-3)}
 .fnote a{color:var(--text-2)}
@@ -636,8 +638,8 @@ body:not(.ar) .l-ar,body.ar .l-en{display:none}
       <nav class="fnav" aria-label="Footer">
         <a href="./#where" data-i="nav.where">Where we work</a>
         <a href="./#approach" data-i="nav.approach">How we work</a>
-        <a href="./#about" data-i="nav.about">About</a>
         <a href="./#news" data-i="nav.news">Economy watch</a>
+        <a href="./#about" data-i="nav.about">About</a>
         <a href="./#contact" data-i="nav.contact">Contact</a>
       </nav>
     </div>
@@ -699,35 +701,35 @@ var T={
   'lg.privacy':'سياسة الخصوصية','lg.terms':'شروط الاستخدام','lg.disc':'إخلاء المسؤولية',
   'cta':'ناقش مشروعًا لوجستيًا','back':'أين نعمل','hero.see':'اكتشف المنافذ',
   'hero.title':'اللوجستيات <em>في سوريا.</em>',
-  'hero.sub':'موانئ سوريا ومعابرها تعود إلى التجارة. نصلك بالمشغّلين والجهات المعنية التي تنقل البضائع.',
+  'hero.sub':'يُعاد فتح موانئ سوريا ومعابرها أمام حركة التجارة، ونحن نصلك بالمشغّلين والجهات المعنية بحركة البضائع.',
   'facts.aria':'أرقام رئيسية',
   'f1.v':'٩٥٪','f1.k':'من تجارة الحاويات في سوريا تمر عبر محطة اللاذقية',
-  'f2.v':'+١ مليار $','f2.k':'التزامات استثمارية في مرفأي سوريا البحريين بعقود امتياز لـ٣٠ عامًا',
-  'f3.v':'٣٫٧ مليار $','f3.k':'حجم التجارة السورية التركية في ٢٠٢٥، بزيادة ٤٥٪ خلال عام',
-  'f4.v':'١٠٥٢ كم','f4.k':'من شبكة سكك حديدية طولها ٢٨٠٠ كم تعمل اليوم',
+  'f2.v':'+١ مليار $','f2.k':'التزامات استثمارية في مرفأي سوريا البحريين بموجب عقود امتياز مدتها ٣٠ عامًا',
+  'f3.v':'٣٫٧ مليار $','f3.k':'حجم التجارة السورية التركية في ٢٠٢٥، بزيادة ٤٥٪ على أساس سنوي',
+  'f4.v':'١٠٥٢ كم','f4.k':'قيد التشغيل اليوم من أصل شبكة سكك حديدية طولها ٢٨٠٠ كم',
   'rt.title':'المنافذ',
   'rt.lede':'مرفآن على المتوسط ومعابر برية مع أربع دول مجاورة تجعل سوريا جسرًا بريًا بين أوروبا وتركيا والخليج والعراق ولبنان.',
   'map.cap':'طرق التجارة الرئيسية من مرفأي اللاذقية وطرطوس إلى المعابر البرية.',
   'map.title':'خريطة طرق التجارة الرئيسية من مرفأي اللاذقية وطرطوس إلى المعابر البرية مع تركيا والعراق والأردن ولبنان',
   't.cap':'المنافذ الرئيسية','t.gate':'المنفذ','t.type':'النوع','t.note':'ما يجب معرفته',
   'op.title':'أين تكمن الفرص',
-  'op.lede':'للموانئ مشغّلون وتمويل. أما ما يقع بين الموانئ والمعابر والمدن فهناك تكمن الثغرات.',
+  'op.lede':'للموانئ مشغّلون وتمويل. أما الثغرات فتكمن فيما يقع بين الموانئ والمعابر والمدن.',
   'who.title':'الجهات التي ستتعامل معها',
   'who.lede':'تمر البضائع العابرة لسوريا عبر عدد قليل من الجهات الأساسية. ومعرفة من يتولى ماذا توفّر أيامًا على الحدود وأشهرًا في المشروع.',
-  'tl.title':'كيف تعود الطرق إلى العمل',
-  'tl.lede':'منذ نهاية ٢٠٢٤ سلّمت سوريا موانئها لمشغّلين دوليين، وبدأت إعادة بناء معابرها، وانضمت إلى خطط سكك حديد إقليمية.',
+  'tl.title':'كيف يُعاد فتح الطرق',
+  'tl.lede':'منذ نهاية ٢٠٢٤ أسندت سوريا تشغيل موانئها إلى مشغّلين دوليين، وبدأت إعادة بناء معابرها، وانضمت إلى خطط سكك حديد إقليمية.',
   'help.title':'كيف نساعد',
-  'help.lede':'نحن جهة تيسير. نساعد التجار والمستثمرين على إيجاد المساحات والشركاء والوثائق المناسبة لنقل البضائع إلى سوريا ومنها وعبرها.',
-  'cta.title':'تنقل بضائع عبر سوريا؟','cta.lede':'أخبرنا بالبضاعة والطريق والكمية، وسنخبرك مع من تعمل وما يتطلبه الأمر.','cta.back':'العودة إلى كل القطاعات'
+  'help.lede':'دورنا دور الميسّر: نساعد التجار والمستثمرين على إيجاد المساحات والشركاء المناسبين وإنجاز الوثائق اللازمة لنقل البضائع إلى سوريا ومنها وعبرها.',
+  'cta.title':'هل تنقل بضائع عبر سوريا؟','cta.lede':'أخبرنا بالبضاعة والطريق والكمية، وسنرشدك إلى الشركاء المناسبين وما يتطلبه ذلك.','cta.back':'العودة إلى كل القطاعات'
  }
 };
 
 var GATES=[
- {en:['Latakia port','Sea','CMA CGM runs the container terminal under a 30-year concession and is investing over €200 million to lift capacity above 1 million TEU.'],ar:['مرفأ اللاذقية','بحري','تدير CMA CGM محطة الحاويات بامتياز لـ٣٠ عامًا، وتستثمر أكثر من ٢٠٠ مليون يورو لرفع الطاقة فوق مليون حاوية نمطية.']},
- {en:['Tartus port','Sea','DP World has run the port since November 2025 under a 30-year, $800 million concession.'],ar:['مرفأ طرطوس','بحري','تدير موانئ دبي العالمية المرفأ منذ تشرين الثاني ٢٠٢٥ بامتياز لـ٣٠ عامًا بقيمة ٨٠٠ مليون دولار.']},
- {en:['Bab al-Hawa','Land, Türkiye','Being expanded with new freight lanes and weighing stations. One of six open crossings with Türkiye.'],ar:['باب الهوى','بري، تركيا','قيد التوسعة بمسارات شحن ومحطات وزن جديدة. وهو واحد من ستة معابر مفتوحة مع تركيا.']},
+ {en:['Latakia port','Sea','CMA CGM runs the container terminal under a 30-year concession and is investing over €200 million to lift capacity above 1 million TEU.'],ar:['مرفأ اللاذقية','بحري','تدير CMA CGM محطة الحاويات بموجب امتياز مدته ٣٠ عامًا، وتستثمر أكثر من ٢٠٠ مليون يورو لرفع الطاقة الاستيعابية إلى أكثر من مليون حاوية نمطية.']},
+ {en:['Tartus port','Sea','DP World has run the port since November 2025 under a 30-year, $800 million concession.'],ar:['مرفأ طرطوس','بحري','تدير موانئ دبي العالمية المرفأ منذ تشرين الثاني ٢٠٢٥ بموجب امتياز مدته ٣٠ عامًا بقيمة ٨٠٠ مليون دولار.']},
+ {en:['Bab al-Hawa','Land, Türkiye','Being expanded with new freight lanes and weighing stations. One of six open crossings with Türkiye.'],ar:['باب الهوى','بري، تركيا','يجري توسيعه بإضافة مسارات شحن ومحطات وزن جديدة، وهو أحد ستة معابر مفتوحة مع تركيا.']},
  {en:['Nasib','Land, Jordan','The main road link south to Jordan and on to the Gulf.'],ar:['نصيب','بري، الأردن','الطريق البري الرئيسي جنوبًا إلى الأردن ومنه إلى الخليج.']},
- {en:['Iraq and Lebanon crossings','Land','Al-Yarubiyah is open to Iraq, and Jisr al-Qamar reopened to Lebanon in May 2026.'],ar:['معابر العراق ولبنان','بري','معبر اليعربية مفتوح إلى العراق، وأعيد فتح معبر جسر القمر إلى لبنان في أيار ٢٠٢٦.']},
+ {en:['Iraq and Lebanon crossings','Land','Al-Yarubiyah is open to Iraq, and Jisr al-Qamar reopened to Lebanon in May 2026.'],ar:['معابر العراق ولبنان','بري','معبر اليعربية مفتوح مع العراق، وأُعيد فتح معبر جسر القمر مع لبنان في أيار ٢٠٢٦.']},
  {en:['Damascus airport','Air','A $4 billion concession signed in November 2025 to rebuild it for up to 31 million passengers a year.'],ar:['مطار دمشق','جوي','امتياز بقيمة ٤ مليارات دولار وُقّع في تشرين الثاني ٢٠٢٥ لإعادة بنائه بطاقة تصل إلى ٣١ مليون مسافر سنويًا.']}
 ];
 
@@ -736,8 +738,8 @@ var OPPS={
      ['Trucking and transit','Syria is the land bridge between Türkiye, Jordan, the Gulf, Iraq and Lebanon. Trade with Türkiye alone grew 45% in 2025, and both sides aim for $10 billion.'],
      ['Rail','Only 1,052 km of the network runs today. Restoring it is put at $5.5 to 6 billion over three to five years, and the Hejaz railway plan with Türkiye and Jordan would link it to the region.'],
      ['Cold chain','Farm exports and medicines need temperature-controlled storage and transport, and the reliable power it depends on is only now returning.']],
- ar:[['المستودعات والموانئ الجافة','يخطط مشغّلو الموانئ لموانئ جافة في الداخل، ويحتاج التجار إلى مستودعات قرب دمشق وحمص وحلب والمعابر الرئيسية.'],
-     ['النقل البري والعبور','سوريا جسر بري بين تركيا والأردن والخليج والعراق ولبنان. وقد نمت التجارة مع تركيا وحدها ٤٥٪ في ٢٠٢٥، ويسعى الطرفان إلى ١٠ مليارات دولار.'],
+ ar:[['المستودعات والموانئ الجافة','يخطط مشغّلو الموانئ لإنشاء موانئ جافة في الداخل، ويحتاج التجار إلى مستودعات قرب دمشق وحمص وحلب والمعابر الرئيسية.'],
+     ['النقل البري والعبور','سوريا جسر بري بين تركيا والأردن والخليج والعراق ولبنان. وقد نمت التجارة مع تركيا وحدها بنسبة ٤٥٪ في ٢٠٢٥، ويسعى الطرفان إلى رفعها إلى ١٠ مليارات دولار.'],
      ['السكك الحديدية','لا يعمل اليوم سوى ١٠٥٢ كم من الشبكة. وتُقدّر كلفة إعادة تأهيلها بين ٥٫٥ و٦ مليارات دولار خلال ثلاث إلى خمس سنوات، وخطة سكة حديد الحجاز مع تركيا والأردن ستربطها بالمنطقة.'],
      ['سلسلة التبريد','تحتاج الصادرات الزراعية والأدوية إلى تخزين ونقل مبرّدين، والكهرباء المستقرة التي يعتمدان عليها بدأت تعود للتو.']]
 };
@@ -748,15 +750,15 @@ var WHO={
      ['Port operators','CMA CGM at Latakia and DP World at Tartus handle ships, containers and terminal services.'],
      ['Syrian Investment Authority','Licenses investments such as warehouses, dry ports and transport companies, with the tax and customs exemptions that come with them.']],
  ar:[['الهيئة العامة للمنافذ البرية والبحرية','تأسست في كانون الأول ٢٠٢٤. تدير المرافئ البحرية والمعابر البرية وتولّت مهام الجمارك.'],
-     ['وزارة النقل','الطرق والسكك الحديدية وأنظمة النقل البري والعبور.'],
-     ['مشغّلو الموانئ','CMA CGM في اللاذقية وموانئ دبي العالمية في طرطوس، يتوليان السفن والحاويات وخدمات المحطات.'],
+     ['وزارة النقل','تشرف على الطرق والسكك الحديدية وتنظيم النقل البري والعبور.'],
+     ['مشغّلو الموانئ','CMA CGM في اللاذقية وموانئ دبي العالمية في طرطوس، تتوليان مناولة السفن والحاويات وخدمات المحطات.'],
      ['هيئة الاستثمار السورية','ترخّص الاستثمارات مثل المستودعات والموانئ الجافة وشركات النقل، مع الإعفاءات الضريبية والجمركية المرتبطة بها.']]
 };
 
 var TIMELINE=[
  {en:['Dec 2024','The General Authority for Land and Sea Ports is created to run ports, crossings and customs.'],ar:['كانون الأول ٢٠٢٤','تأسيس الهيئة العامة للمنافذ البرية والبحرية لإدارة الموانئ والمعابر والجمارك.']},
- {en:['May 2025','CMA CGM signs a new 30-year concession for the Latakia container terminal.'],ar:['أيار ٢٠٢٥','CMA CGM توقّع امتيازًا جديدًا لـ٣٠ عامًا لمحطة حاويات اللاذقية.']},
- {en:['Jul 2025','DP World signs a 30-year, $800 million concession for Tartus, and starts operating it in November.'],ar:['تموز ٢٠٢٥','موانئ دبي العالمية توقّع امتيازًا لـ٣٠ عامًا بقيمة ٨٠٠ مليون دولار لمرفأ طرطوس، وتبدأ تشغيله في تشرين الثاني.']},
+ {en:['May 2025','CMA CGM signs a new 30-year concession for the Latakia container terminal.'],ar:['أيار ٢٠٢٥','CMA CGM توقّع عقد امتياز جديد مدته ٣٠ عامًا لمحطة حاويات اللاذقية.']},
+ {en:['Jul 2025','DP World signs a 30-year, $800 million concession for Tartus, and starts operating it in November.'],ar:['تموز ٢٠٢٥','موانئ دبي العالمية توقّع عقد امتياز مدته ٣٠ عامًا بقيمة ٨٠٠ مليون دولار لمرفأ طرطوس، وتبدأ تشغيله في تشرين الثاني.']},
  {en:['Sep 2025','Türkiye, Syria and Jordan agree to revive the Hejaz railway.'],ar:['أيلول ٢٠٢٥','تركيا وسوريا والأردن تتفق على إحياء سكة حديد الحجاز.']},
  {en:['Nov 2025','A $4 billion concession is signed to rebuild Damascus airport.'],ar:['تشرين الثاني ٢٠٢٥','توقيع امتياز بقيمة ٤ مليارات دولار لإعادة بناء مطار دمشق.']},
  {en:['Apr 2026','Expansion of the Bab al-Hawa crossing begins, and an agreement is signed to extend rail links towards the port of Aqaba.'],ar:['نيسان ٢٠٢٦','بدء توسعة معبر باب الهوى، وتوقيع اتفاق لمدّ خطوط السكك الحديدية نحو ميناء العقبة.']},
@@ -770,7 +772,7 @@ var HELP={
      ['Cold chain and tracking','Temperature-controlled options for farm and medical goods, and tracking so you can see where your cargo is.']],
  ar:[['المستودعات والمراكز','نجد لك مساحات التخزين ونؤمّنها، من المستودعات العادية إلى مراكز التوزيع قرب الموانئ والمعابر والطرق الرئيسية.'],
      ['شركاء الشحن والنقل','نعرّفك بوكلاء شحن ووكالات بحرية وأساطيل نقل بري موثوقة، محلية ودولية.'],
-     ['الجمارك ورخص التجارة','رخص الاستيراد والتصدير، والتخليص لدى هيئة المنافذ، حتى لا تبقى البضاعة عالقة على الحدود.'],
+     ['الجمارك ورخص التجارة','رخص الاستيراد والتصدير، والتخليص الجمركي لدى هيئة المنافذ، حتى لا تبقى البضاعة عالقة على الحدود.'],
      ['سلسلة التبريد والتتبع','خيارات نقل مبرّد للمنتجات الزراعية والطبية، وتتبع يتيح لك معرفة مكان شحنتك.']]
 };
 

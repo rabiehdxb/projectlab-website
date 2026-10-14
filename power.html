@@ -279,7 +279,7 @@ footer .wrap{display:grid;gap:40px}
 .ftop img{width:min(220px,62vw);height:auto}
 .fnav{display:flex;flex-wrap:wrap;gap:22px}
 .fnav a{text-decoration:none}.fnav a:hover{color:var(--text)}
-.fbot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:13px;color:var(--text-3)}
+.fbot{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;font-size:13px;color:var(--text-3)}
 
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
@@ -319,7 +319,7 @@ body.ar .motion-toggle{font-family:var(--arabic)}
 @media (max-width:700px){.motion-toggle{bottom:auto;top:84px}}
 @media (prefers-reduced-motion: reduce){.motion-toggle{display:none}}
 /* Touch targets */
-@media (pointer:coarse),(max-width:760px){.lang{min-height:44px!important}.chip{min-height:44px}.lang{min-height:44px;min-width:44px}.fnav a{display:inline-block;padding-block:12px}}
+@media (pointer:coarse),(max-width:760px){.lang{min-height:44px!important}.chip{min-height:44px}.lang{min-height:44px;min-width:44px}.fnav a,.flegal a{display:inline-block;padding-block:12px}}
 /* About */
 body:not(.ar) .l-ar,body.ar .l-en{display:none}
 .about{border-bottom:1px solid var(--line)}
@@ -328,25 +328,27 @@ body:not(.ar) .l-ar,body.ar .l-en{display:none}
 .about h2{font-size:clamp(38px,5vw,64px);text-transform:uppercase;max-width:14ch}
 body.ar .about h2{font-size:clamp(30px,3.6vw,46px);max-width:none}
 .ab-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:clamp(40px,5vw,64px) 0 0;border-block:1px solid var(--line-2)}
-.ab-facts>div{padding:22px 20px 24px;border-inline-start:1px solid var(--line)}
-.ab-facts>div:first-child{border-inline-start:0;padding-inline-start:0}
+.ab-facts>div{padding:24px 16px 26px;border-inline-start:1px solid var(--line);text-align:center}
+.ab-facts>div:first-child{border-inline-start:0}
+.ab-facts .cnt{font-weight:inherit;font-variant-numeric:tabular-nums}
 .ab-facts dt{font:500 clamp(26px,3vw,40px)/1.05 var(--mono);color:var(--accent-text);letter-spacing:-.01em}
 body.ar .ab-facts dt{font-family:var(--ar-head);font-weight:800;letter-spacing:0}
 .ab-facts dd{margin:10px 0 0;color:var(--text-2);font-size:14.5px;line-height:1.45}
 .ab-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(28px,4vw,56px);margin-top:clamp(48px,6vw,80px)}
 .ab-cols h3,.ab-low h3{font-size:clamp(22px,2.2vw,28px);text-transform:uppercase;margin-bottom:14px}
 body.ar .ab-cols h3,body.ar .ab-low h3{font-size:clamp(19px,1.8vw,23px)}
-.ab-cols p{color:var(--text-2);margin:0 0 12px}
+.ab-cols p{color:var(--text-2);margin:0 0 12px;text-align:justify;text-justify:inter-word;hyphens:auto}
+body.ar .ab-cols p{hyphens:none}
 .ab-low{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);margin-top:clamp(52px,6vw,88px)}
 .ab-dir{margin:0;border-bottom:1px solid var(--line)}
 .ab-dir>div{display:grid;grid-template-columns:minmax(120px,.42fr) 1fr;gap:6px 22px;padding:15px 0;border-top:1px solid var(--line)}
 .ab-dir dt{color:var(--text);font-weight:600}
 .ab-dir dd{margin:0;color:var(--text-2)}
 .ab-dir dd [dir=ltr]{unicode-bidi:isolate}
-@media (max-width:900px){.ab-top,.ab-low{grid-template-columns:1fr}.ab-cols{grid-template-columns:1fr}.ab-facts{grid-template-columns:1fr 1fr}.ab-facts>div:nth-child(3){border-inline-start:0;padding-inline-start:0}.ab-facts>div:nth-child(n+3){border-top:1px solid var(--line)}}
+@media (max-width:900px){.ab-top,.ab-low{grid-template-columns:1fr}.ab-cols{grid-template-columns:1fr}.ab-facts{grid-template-columns:1fr 1fr}.ab-facts>div:nth-child(3){border-inline-start:0}.ab-facts>div:nth-child(n+3){border-top:1px solid var(--line)}}
 @media (max-width:520px){.ab-dir>div{grid-template-columns:1fr}.ab-facts dt{font-size:24px}body.ar .ab-facts dt{font-size:21px}}
 /* Footer legal links + form note */
-.flegal{display:flex;flex-wrap:wrap;gap:6px 20px}
+.flegal{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 24px;order:-1}
 .flegal a{color:var(--text-3);text-decoration:none}.flegal a:hover{color:var(--text)}
 .fnote{flex-basis:100%;margin:0;font-size:13px;color:var(--text-3)}
 .fnote a{color:var(--text-2)}
@@ -649,8 +651,8 @@ body:not(.ar) .l-ar,body.ar .l-en{display:none}
       <nav class="fnav" aria-label="Footer">
         <a href="./#where" data-i="nav.where">Where we work</a>
         <a href="./#approach" data-i="nav.approach">How we work</a>
-        <a href="./#about" data-i="nav.about">About</a>
         <a href="./#news" data-i="nav.news">Economy watch</a>
+        <a href="./#about" data-i="nav.about">About</a>
         <a href="./#contact" data-i="nav.contact">Contact</a>
       </nav>
     </div>
@@ -717,22 +719,22 @@ var T={
   'lg.privacy':'سياسة الخصوصية','lg.terms':'شروط الاستخدام','lg.disc':'إخلاء المسؤولية',
   'cta':'ناقش مشروعًا كهربائيًا','back':'أين نعمل','hero.see':'اكتشف المحطات الجديدة',
   'hero.title':'الكهرباء <em>في سوريا.</em>',
-  'hero.sub':'إعادة بناء الشبكة في قلب تعافي سوريا. نصل المستثمرين بالجهات المعنية وبالمناقصات التي تقف وراءها.',
+  'hero.sub':'تقع إعادة بناء الشبكة في صميم تعافي سوريا، ونحن نصل المستثمرين بالجهات المعنية والمناقصات المرتبطة بها.',
   'facts.aria':'أرقام رئيسية',
   'f1.v':'١٠ آلاف','f1.k':'ميغاواط قدرة مركّبة قبل ٢٠١١',
-  'f2.v':'+٣ آلاف','f2.k':'ميغاواط متاحة مطلع ٢٠٢٦، بعد نحو ١٤٠٠ قبل عام',
+  'f2.v':'+٣ آلاف','f2.k':'ميغاواط متاحة مطلع ٢٠٢٦، مقارنةً بنحو ١٤٠٠ قبل عام',
   'f3.v':'≈٤ ساعات','f3.k':'من كهرباء الشبكة يوميًا في مناطق كثيرة، في أحسن الأحوال',
-  'f4.v':'٥ آلاف','f4.k':'ميغاواط من محطات الغاز والطاقة الشمسية الجديدة وُقّعت في تشرين الثاني ٢٠٢٥',
+  'f4.v':'٥ آلاف','f4.k':'ميغاواط من محطات الغاز والطاقة الشمسية الجديدة وُقّعت عقودها في تشرين الثاني ٢٠٢٥',
   'pl.title':'المحطات الجديدة',
-  'pl.lede':'في تشرين الثاني ٢٠٢٥ وقّعت وزارة الطاقة عقود امتياز مع تحالف تقوده شركة UCC القابضة القطرية لبناء أربع محطات تعمل بالغاز و١٠٠٠ ميغاواط من الطاقة الشمسية، بمدة تنفيذ تقارب ثلاث سنوات ونصف.',
+  'pl.lede':'في تشرين الثاني ٢٠٢٥ وقّعت وزارة الطاقة عقود امتياز مع تحالف تقوده شركة UCC القابضة القطرية لبناء أربع محطات تعمل بالغاز ومحطات طاقة شمسية بقدرة ١٠٠٠ ميغاواط، على أن يستغرق التنفيذ نحو ثلاث سنوات ونصف.',
   'map.cap':'محطات الغاز الأربع الجديدة، وخط ٤٠٠ ك.ف الذي ينقل الكهرباء من تركيا إلى حلب.',
   'map.title':'خريطة محطات توليد الكهرباء الأربع الجديدة وخط الربط من تركيا إلى حلب',
   'map.link':'خط ٤٠٠ ك.ف من تركيا',
-  't.cap':'وُقّعت في تشرين الثاني ٢٠٢٥','t.plant':'المحطة','t.gov':'المحافظة','t.cap2':'القدرة',
+  't.cap':'عقود موقّعة في تشرين الثاني ٢٠٢٥','t.plant':'المحطة','t.gov':'المحافظة','t.cap2':'القدرة',
   'out.title':'القدرة بين الأمس واليوم',
-  'out.lede':'قبل ٢٠١١ امتلكت سوريا نحو ١٠ آلاف ميغاواط من القدرة المركّبة وكهرباء شبه متواصلة. ثم قلّصت أضرار الحرب ونقص الوقود ما تستطيع الشبكة إيصاله إلى جزء بسيط من ذلك. والقدرة ترتفع اليوم مع عودة واردات الغاز وإصلاح المحطات، لكن الطلب ما زال يتجاوز العرض بكثير.',
+  'out.lede':'قبل عام ٢٠١١ امتلكت سوريا نحو ١٠ آلاف ميغاواط من القدرة المركّبة، وكانت الكهرباء متوافرة على مدار الساعة تقريبًا. ثم قلّصت أضرار الحرب ونقص الوقود ما تستطيع الشبكة إيصاله إلى جزء بسيط من ذلك. وتعاود القدرة الارتفاع اليوم مع عودة واردات الغاز وإصلاح المحطات، لكن الطلب ما زال يتجاوز العرض بكثير.',
   'out.aria':'قدرة التوليد بالميغاواط',
-  'out.note':'بالميغاواط. رقم ٢٠١١ هو القدرة المركّبة، والسنوات اللاحقة هي ما استطاعت الشبكة إيصاله. العمود المفرّغ قدرة جديدة موقّعة لم تُبنَ بعد.',
+  'out.note':'بالميغاواط. رقم ٢٠١١ يمثّل القدرة المركّبة، وأرقام السنوات اللاحقة تمثّل ما استطاعت الشبكة إيصاله. العمود المفرّغ قدرة جديدة موقّعة لم تُبنَ بعد.',
   'op.title':'أين تكمن الفرص',
   'op.lede':'كل جزء من المنظومة تقريبًا يحتاج إلى استثمار، من محطات التوليد إلى الكابلات التي تصل إلى المنازل والمصانع. ويأتي جزء كبير من العمل عبر مناقصات وعقود امتياز حكومية.',
   'who.title':'الجهات التي ستتعامل معها',
@@ -740,17 +742,17 @@ var T={
   'tl.title':'طريق العودة',
   'tl.lede':'منذ ٢٠٢٥ عاد الوقود إلى التدفق، وأعيد ضبط التعرفة، ووُقّعت أكبر عقود كهرباء منذ أكثر من عقد.',
   'help.title':'كيف نساعد المستثمرين',
-  'help.lede':'نحن جهة تيسير. نساعد المستثمرين والمقاولين على إيجاد المناقصة أو المشروع المناسب، والوصول إلى الأشخاص المعنيين، وإعداد عرض قادر على الفوز.',
-  'cta.title':'تفكر في قطاع الكهرباء السوري؟','cta.lede':'أخبرنا بما تريد بناءه أو توريده أو الاستثمار فيه، وسنخبرك مع من تتحدث وما المتاح.','cta.back':'العودة إلى كل القطاعات'
+  'help.lede':'دورنا دور الميسّر: نساعد المستثمرين والمقاولين على إيجاد المناقصة أو المشروع المناسب، والوصول إلى الأشخاص المعنيين، وإعداد عرض تنافسي قادر على الفوز بالمناقصة.',
+  'cta.title':'هل تتطلع إلى الاستثمار في قطاع الكهرباء السوري؟','cta.lede':'أخبرنا بما تريد بناءه أو توريده أو الاستثمار فيه، وسنرشدك إلى الجهات التي ينبغي التواصل معها والفرص المتاحة.','cta.back':'العودة إلى كل القطاعات'
  }
 };
 
 var PLANTS=[
- {k:'aleppoCity',en:['Aleppo','Aleppo','1,200 MW'],ar:['حلب','حلب','١٢٠٠ م.و'],lab:{en:'Aleppo · 1,200 MW',ar:'حلب · ١٢٠٠ م.و'},pos:'t'},
- {k:'deirCity',en:['Deir ez-Zor','Deir ez-Zor','1,000 MW'],ar:['دير الزور','دير الزور','١٠٠٠ م.و'],lab:{en:'Deir ez-Zor · 1,000 MW',ar:'دير الزور · ١٠٠٠ م.و'},pos:'b'},
- {ll:[36.35,35.76],en:['Zayzoun','Idlib','1,000 MW'],ar:['زيزون','إدلب','١٠٠٠ م.و'],lab:{en:'Zayzoun · 1,000 MW',ar:'زيزون · ١٠٠٠ م.و'},pos:'tl'},
- {ll:[36.57,35.25],en:['Mhardeh','Hama','800 MW'],ar:['محردة','حماة','٨٠٠ م.و'],lab:{en:'Mhardeh · 800 MW',ar:'محردة · ٨٠٠ م.و'},pos:'r'},
- {en:['Solar, four sites','Various','1,000 MW'],ar:['طاقة شمسية، أربعة مواقع','متعددة','١٠٠٠ م.و']}
+ {k:'aleppoCity',en:['Aleppo','Aleppo','1,200 MW'],ar:['حلب','حلب','١٢٠٠ ميغاواط'],lab:{en:'Aleppo · 1,200 MW',ar:'حلب، ١٢٠٠ م.و'},pos:'t'},
+ {k:'deirCity',en:['Deir ez-Zor','Deir ez-Zor','1,000 MW'],ar:['دير الزور','دير الزور','١٠٠٠ ميغاواط'],lab:{en:'Deir ez-Zor · 1,000 MW',ar:'دير الزور، ١٠٠٠ م.و'},pos:'b'},
+ {ll:[36.35,35.76],en:['Zayzoun','Idlib','1,000 MW'],ar:['زيزون','إدلب','١٠٠٠ ميغاواط'],lab:{en:'Zayzoun · 1,000 MW',ar:'زيزون، ١٠٠٠ م.و'},pos:'tl'},
+ {ll:[36.57,35.25],en:['Mhardeh','Hama','800 MW'],ar:['محردة','حماة','٨٠٠ ميغاواط'],lab:{en:'Mhardeh · 800 MW',ar:'محردة، ٨٠٠ م.و'},pos:'r'},
+ {en:['Solar, four sites','Various','1,000 MW'],ar:['طاقة شمسية، أربعة مواقع','متعددة','١٠٠٠ ميغاواط']}
 ];
 
 /* Megawatts. tgt = signed, not yet built (outlined bar). */
@@ -767,9 +769,9 @@ var OPPS={
      ['Grid and substations','About a third of power was lost in the network in 2023, against 17% in 2010. Transformers, substations and high-voltage cabling are needed everywhere, and the World Bank has granted $146 million for grid repair.'],
      ['Solar and wind','Rooftop and off-grid solar passed 2,000 MW by 2025, but grid-scale solar was under 200 MW. Utility-scale solar and wind projects are now being signed.'],
      ['Fuel and imports','Plants are short of gas. Supply now comes from Azerbaijan through Türkiye and from Jordan, and new lines are bringing in power from Türkiye.']],
- ar:[['التوليد','أربع محطات غاز جديدة قيد الامتياز، والمحطات القائمة تحتاج إلى إصلاح. ففي محطة حلب الحرارية ثلاث من أصل خمس وحدات باستطاعة ٢١٣ ميغاواط خارج الخدمة.'],
-     ['الشبكة ومحطات التحويل','فُقد نحو ثلث الكهرباء في الشبكة عام ٢٠٢٣ مقابل ١٧٪ عام ٢٠١٠. والحاجة قائمة في كل مكان إلى المحولات ومحطات التحويل وكابلات الجهد العالي، وقد منح البنك الدولي ١٤٦ مليون دولار لإصلاح الشبكة.'],
-     ['الطاقة الشمسية والرياح','تجاوزت الطاقة الشمسية على الأسطح وخارج الشبكة ٢٠٠٠ ميغاواط بحلول ٢٠٢٥، بينما بقيت الطاقة الشمسية المربوطة بالشبكة دون ٢٠٠ ميغاواط. ويجري الآن توقيع مشاريع شمسية وريحية كبيرة.'],
+ ar:[['التوليد','أربع محطات غاز جديدة قيد الامتياز، والمحطات القائمة تحتاج إلى إصلاح. ففي محطة حلب الحرارية ثلاث وحدات من أصل خمس، استطاعة كل منها ٢١٣ ميغاواط، خارج الخدمة.'],
+     ['الشبكة ومحطات التحويل','بلغ الفاقد في الشبكة نحو ثلث الطاقة المنقولة عام ٢٠٢٣، مقابل ١٧٪ عام ٢٠١٠. والحاجة قائمة في كل مكان إلى المحولات ومحطات التحويل وكابلات الجهد العالي، وقد منح البنك الدولي ١٤٦ مليون دولار لإصلاح الشبكة.'],
+     ['الطاقة الشمسية والرياح','تجاوزت الطاقة الشمسية على الأسطح وخارج الشبكة ٢٠٠٠ ميغاواط بحلول ٢٠٢٥، بينما بقيت الطاقة الشمسية المربوطة بالشبكة دون ٢٠٠ ميغاواط. ويجري الآن توقيع مشاريع كبيرة للطاقة الشمسية وطاقة الرياح.'],
      ['الوقود والاستيراد','تعاني المحطات نقصًا في الغاز. ويأتي الإمداد اليوم من أذربيجان عبر تركيا ومن الأردن، وتنقل خطوط جديدة الكهرباء من تركيا.']]
 };
 
@@ -779,7 +781,7 @@ var WHO={
      ['Syrian Investment Authority','Licenses and registers investments under Investment Law 114 of 2025, and handles tax and customs exemptions.']],
  ar:[['وزارة الطاقة','تشكّلت عام ٢٠٢٥ بدمج وزارات الكهرباء والنفط والموارد المائية. ترسم السياسة وتوقّع عقود الامتياز وتصدر التراخيص.'],
      ['الشركة السورية للكهرباء','الشركة القابضة الحكومية للكهرباء، أُسست في نيسان ٢٠٢٦. تجمع التوليد والنقل والتوزيع تحت مظلة واحدة.'],
-     ['هيئة الاستثمار السورية','ترخّص الاستثمارات وتسجّلها وفق قانون الاستثمار رقم ١١٤ لعام ٢٠٢٥، وتتولى الإعفاءات الضريبية والجمركية.']]
+     ['هيئة الاستثمار السورية','ترخّص الاستثمارات وتسجّلها وفق قانون الاستثمار رقم ١١٤ لعام ٢٠٢٥، وتمنح الإعفاءات الضريبية والجمركية.']]
 };
 
 var TIMELINE=[
@@ -789,7 +791,7 @@ var TIMELINE=[
  {en:['Nov 2025','Final concessions signed for 5,000 MW of new gas and solar plants, led by UCC Holding.'],ar:['تشرين الثاني ٢٠٢٥','توقيع عقود الامتياز النهائية لـ٥٠٠٠ ميغاواط من محطات الغاز والطاقة الشمسية الجديدة بقيادة UCC القابضة.']},
  {en:['Jan 2026','Available capacity passes 3,000 MW for the first time in over six years, and a gas supply deal with Jordan adds 4 million cubic metres a day.'],ar:['كانون الثاني ٢٠٢٦','القدرة المتاحة تتجاوز ٣٠٠٠ ميغاواط لأول مرة منذ أكثر من ست سنوات، واتفاق غاز مع الأردن يضيف ٤ ملايين متر مكعب يوميًا.']},
  {en:['Apr 2026','The Syrian Electricity Company is created as a single state holding for the sector.'],ar:['نيسان ٢٠٢٦','تأسيس الشركة السورية للكهرباء شركةً قابضة حكومية موحّدة للقطاع.']},
- {goal:1,en:['Around 2029','The eight new plants are due, adding 5,000 MW.'],ar:['نحو ٢٠٢٩','الموعد المتوقع لتشغيل المحطات الثماني الجديدة، بإضافة ٥٠٠٠ ميغاواط.']}
+ {goal:1,en:['Around 2029','The eight new plants are due, adding 5,000 MW.'],ar:['نحو ٢٠٢٩','الموعد المتوقع لتشغيل المحطات الثماني الجديدة، لتضيف ٥٠٠٠ ميغاواط.']}
 ];
 
 var HELP={
@@ -797,9 +799,9 @@ var HELP={
      ['Meet the right people','Introductions to the Ministry of Energy, the Syrian Electricity Company, local electricity companies such as Aleppo’s, and the Syrian Investment Authority.'],
      ['Build a bid that can win','We bring together engineering, equipment and finance partners into a consortium, and check the bid against national requirements before it goes in.'],
      ['Deliver on the ground','Sourcing and logistics for transformers, cabling and substation equipment, and follow-through on licences until the project starts.']],
- ar:[['إيجاد المناقصة المناسبة','نتابع المناقصات وعقود الامتياز الحكومية، ونحصل على وثائقها، ونتحقق مما تحتاجه شركتك للتأهل.'],
+ ar:[['إيجاد المناقصة المناسبة','نتابع المناقصات وعقود الامتياز الحكومية، ونحصل على وثائقها، ونتحقق مما تحتاج إليه شركتك للتأهل.'],
      ['الوصول إلى الأشخاص المعنيين','نعرّفك بوزارة الطاقة والشركة السورية للكهرباء وشركات الكهرباء المحلية مثل شركة كهرباء حلب، وهيئة الاستثمار السورية.'],
-     ['عرض قادر على الفوز','نجمع شركاء الهندسة والمعدات والتمويل في تحالف واحد، ونراجع العرض وفق المتطلبات الوطنية قبل تقديمه.'],
+     ['إعداد عرض تنافسي','نجمع شركاء الهندسة والمعدات والتمويل في تحالف واحد، ونتحقق من مطابقة العرض للمتطلبات الوطنية قبل تقديمه.'],
      ['التنفيذ على الأرض','توريد المحولات والكابلات ومعدات محطات التحويل ونقلها، ومتابعة التراخيص حتى انطلاق المشروع.']]
 };
 

@@ -24,7 +24,8 @@
  "areaServed":{"@type":"Country","name":"Syria"},
  "knowsAbout":["Oil and petroleum","Phosphate and mining","Electrical infrastructure","Real estate development","Logistics and supply chain"],
  "email":"sales@oreviatrade.com",
- "address":{"@type":"PostalAddress","streetAddress":"Orfali Building, Jaber Bin Hayan Street","addressLocality":"Damascus","addressCountry":"SY"},
+ "address":{"@type":"PostalAddress","streetAddress":"Office 102, Mohamed Abdulaziz Mohamed Bin Fares Building, Al Murar","addressLocality":"Dubai","addressCountry":"AE"},
+ "location":[{"@type":"Place","name":"Syria branch","address":{"@type":"PostalAddress","streetAddress":"Orfali Building, Jaber Bin Hayan Street","addressLocality":"Damascus","addressCountry":"SY"}}],
  "contactPoint":[{"@type":"ContactPoint","contactType":"sales","telephone":"+971559327171","areaServed":"AE","email":"sales@oreviatrade.com"},
   {"@type":"ContactPoint","contactType":"sales","telephone":"+963945650008","areaServed":"SY"}]}
 </script>
@@ -289,7 +290,7 @@ footer .wrap{display:grid;gap:40px}
 .ftop img{width:min(220px,62vw);height:auto}
 .fnav{display:flex;flex-wrap:wrap;gap:22px}
 .fnav a{text-decoration:none}.fnav a:hover{color:var(--text)}
-.fbot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:13px;color:var(--text-3)}
+.fbot{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;font-size:13px;color:var(--text-3)}
 
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
@@ -329,7 +330,7 @@ body.ar .motion-toggle{font-family:var(--arabic)}
 @media (max-width:700px){.motion-toggle{bottom:auto;top:84px}}
 @media (prefers-reduced-motion: reduce){.motion-toggle{display:none}}
 /* Touch targets */
-@media (pointer:coarse),(max-width:760px){.lang{min-height:44px!important}.chip{min-height:44px}.lang{min-height:44px;min-width:44px}.fnav a{display:inline-block;padding-block:12px}}
+@media (pointer:coarse),(max-width:760px){.lang{min-height:44px!important}.chip{min-height:44px}.lang{min-height:44px;min-width:44px}.fnav a,.flegal a{display:inline-block;padding-block:12px}}
 /* About */
 body:not(.ar) .l-ar,body.ar .l-en{display:none}
 .about{border-bottom:1px solid var(--line)}
@@ -338,25 +339,27 @@ body:not(.ar) .l-ar,body.ar .l-en{display:none}
 .about h2{font-size:clamp(38px,5vw,64px);text-transform:uppercase;max-width:14ch}
 body.ar .about h2{font-size:clamp(30px,3.6vw,46px);max-width:none}
 .ab-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:clamp(40px,5vw,64px) 0 0;border-block:1px solid var(--line-2)}
-.ab-facts>div{padding:22px 20px 24px;border-inline-start:1px solid var(--line)}
-.ab-facts>div:first-child{border-inline-start:0;padding-inline-start:0}
+.ab-facts>div{padding:24px 16px 26px;border-inline-start:1px solid var(--line);text-align:center}
+.ab-facts>div:first-child{border-inline-start:0}
+.ab-facts .cnt{font-weight:inherit;font-variant-numeric:tabular-nums}
 .ab-facts dt{font:500 clamp(26px,3vw,40px)/1.05 var(--mono);color:var(--accent-text);letter-spacing:-.01em}
 body.ar .ab-facts dt{font-family:var(--ar-head);font-weight:800;letter-spacing:0}
 .ab-facts dd{margin:10px 0 0;color:var(--text-2);font-size:14.5px;line-height:1.45}
 .ab-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(28px,4vw,56px);margin-top:clamp(48px,6vw,80px)}
 .ab-cols h3,.ab-low h3{font-size:clamp(22px,2.2vw,28px);text-transform:uppercase;margin-bottom:14px}
 body.ar .ab-cols h3,body.ar .ab-low h3{font-size:clamp(19px,1.8vw,23px)}
-.ab-cols p{color:var(--text-2);margin:0 0 12px}
+.ab-cols p{color:var(--text-2);margin:0 0 12px;text-align:justify;text-justify:inter-word;hyphens:auto}
+body.ar .ab-cols p{hyphens:none}
 .ab-low{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);margin-top:clamp(52px,6vw,88px)}
 .ab-dir{margin:0;border-bottom:1px solid var(--line)}
 .ab-dir>div{display:grid;grid-template-columns:minmax(120px,.42fr) 1fr;gap:6px 22px;padding:15px 0;border-top:1px solid var(--line)}
 .ab-dir dt{color:var(--text);font-weight:600}
 .ab-dir dd{margin:0;color:var(--text-2)}
 .ab-dir dd [dir=ltr]{unicode-bidi:isolate}
-@media (max-width:900px){.ab-top,.ab-low{grid-template-columns:1fr}.ab-cols{grid-template-columns:1fr}.ab-facts{grid-template-columns:1fr 1fr}.ab-facts>div:nth-child(3){border-inline-start:0;padding-inline-start:0}.ab-facts>div:nth-child(n+3){border-top:1px solid var(--line)}}
+@media (max-width:900px){.ab-top,.ab-low{grid-template-columns:1fr}.ab-cols{grid-template-columns:1fr}.ab-facts{grid-template-columns:1fr 1fr}.ab-facts>div:nth-child(3){border-inline-start:0}.ab-facts>div:nth-child(n+3){border-top:1px solid var(--line)}}
 @media (max-width:520px){.ab-dir>div{grid-template-columns:1fr}.ab-facts dt{font-size:24px}body.ar .ab-facts dt{font-size:21px}}
 /* Footer legal links + form note */
-.flegal{display:flex;flex-wrap:wrap;gap:6px 20px}
+.flegal{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 24px;order:-1}
 .flegal a{color:var(--text-3);text-decoration:none}.flegal a:hover{color:var(--text)}
 .fnote{flex-basis:100%;margin:0;font-size:13px;color:var(--text-3)}
 .fnote a{color:var(--text-2)}
@@ -372,8 +375,8 @@ body.ar .ab-cols h3,body.ar .ab-low h3{font-size:clamp(19px,1.8vw,23px)}
     <nav class="main" aria-label="Main">
       <a href="#where" data-i="nav.where">Where we work</a>
       <a href="#approach" data-i="nav.approach">How we work</a>
-      <a href="#about" data-i="nav.about">About</a>
       <a href="#news" data-i="nav.news">Economy watch</a>
+      <a href="#about" data-i="nav.about">About</a>
       <a href="#contact" data-i="nav.contact">Contact</a>
     </nav>
     <div class="hdr-actions">
@@ -434,25 +437,46 @@ body.ar .ab-cols h3,body.ar .ab-low h3{font-size:clamp(19px,1.8vw,23px)}
     </div>
   </section>
 
+
+  <section id="news" aria-labelledby="news-h">
+    <div class="wrap">
+      <div class="news-top">
+        <div>
+          <h2 id="news-h" data-i="news.title">Syria economy watch</h2>
+          <p class="lede" data-i="news.lede">Recent business headlines about Syria, sorted by sector and mapped to the governorates they mention.</p>
+        </div>
+        <span class="status" id="newsStatus"><i></i><span></span></span>
+      </div>
+      <div class="chips" id="chips" role="group" aria-label="Filter by sector"></div>
+      <div class="track" id="track" tabindex="0" aria-label="Headlines"></div>
+      <div class="news-ctrl">
+        <button type="button" id="prev" aria-label="Previous headline"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <div class="prog" aria-hidden="true"><b id="progBar"></b></div>
+        <button type="button" id="next" aria-label="Next headline"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
+      <p class="disclaimer" data-i="news.disc">Headlines link to third-party publishers. Orevia is not responsible for their content.</p>
+    </div>
+  </section>
+
   <section id="about" class="about" aria-labelledby="ab-h">
     <div class="wrap">
       <div class="ab-top">
         <h2 id="ab-h"><span class="l-en">Built for Syria's next chapter.</span><span class="l-ar" lang="ar">شريككم في مرحلة سوريا الجديدة.</span></h2>
-        <p class="lede"><span class="l-en">Orevia Commercial Brokers L.L.C is a commercial brokerage licensed in Dubai. We connect investors and traders with opportunities in Syria across oil and energy, phosphate and mining, power, real estate and logistics.</span><span class="l-ar" lang="ar">أوريفيا للوساطة التجارية شركة وساطة تجارية مرخّصة في دبي، تربط المستثمرين والتجّار بالفرص المتاحة في سوريا في قطاعات النفط والطاقة، والفوسفات والتعدين، والكهرباء، والتطوير العقاري، والخدمات اللوجستية.</span></p>
+        <p class="lede"><span class="l-en">Orevia Commercial Brokers L.L.C is a commercial brokerage licensed in Dubai. We connect investors and traders with opportunities in Syria across oil and energy, phosphate and mining, power, real estate and logistics.</span><span class="l-ar" lang="ar">أوريفيا للوساطة التجارية شركةٌ مرخّصة في دبي، تربط المستثمرين والتجّار بالفرص المتاحة في سوريا ضمن قطاعات النفط والطاقة، والفوسفات والتعدين، والكهرباء، والتطوير العقاري، والخدمات اللوجستية.</span></p>
       </div>
       <dl class="ab-facts">
-        <div><dt><span class="l-en">2021</span><span class="l-ar" lang="ar">٢٠٢١</span></dt><dd><span class="l-en">Licensed in Dubai</span><span class="l-ar" lang="ar">مرخّصون في دبي</span></dd></div>
-        <div><dt><span class="l-en">Dec 2024</span><span class="l-ar" lang="ar">ديسمبر ٢٠٢٤</span></dt><dd><span class="l-en">On the ground in Syria</span><span class="l-ar" lang="ar">حضورٌ ميداني في سوريا</span></dd></div>
-        <div><dt><span class="l-en">5</span><span class="l-ar" lang="ar">٥</span></dt><dd><span class="l-en">Sectors we cover</span><span class="l-ar" lang="ar">قطاعات رئيسية نغطيها</span></dd></div>
-        <div><dt><span class="l-en">3</span><span class="l-ar" lang="ar">٣</span></dt><dd><span class="l-en">Countries in our legal and partner network</span><span class="l-ar" lang="ar">دول تمتد إليها شبكة مستشارينا وشركائنا</span></dd></div>
+        <div><dt><span class="l-en"><b class="cnt" data-n="2021">2021</b></span><span class="l-ar" lang="ar"><b class="cnt" data-n="2021" data-ar="1">٢٠٢١</b></span></dt><dd><span class="l-en">Licensed in Dubai</span><span class="l-ar" lang="ar">مرخّصون في دبي</span></dd></div>
+        <div><dt><span class="l-en">Dec <b class="cnt" data-n="2024">2024</b></span><span class="l-ar" lang="ar">كانون الأول <b class="cnt" data-n="2024" data-ar="1">٢٠٢٤</b></span></dt><dd><span class="l-en">On the ground in Syria</span><span class="l-ar" lang="ar">حضورٌ ميداني في سوريا</span></dd></div>
+        <div><dt><span class="l-en"><b class="cnt" data-n="5">5</b></span><span class="l-ar" lang="ar"><b class="cnt" data-n="5" data-ar="1">٥</b></span></dt><dd><span class="l-en">Sectors we cover</span><span class="l-ar" lang="ar">قطاعات رئيسية نغطيها</span></dd></div>
+        <div><dt><span class="l-en"><b class="cnt" data-n="3">3</b></span><span class="l-ar" lang="ar"><b class="cnt" data-n="3" data-ar="1">٣</b></span></dt><dd><span class="l-en">Countries in our legal and partner network</span><span class="l-ar" lang="ar">دول تمتد إليها شبكة مستشارينا وشركائنا</span></dd></div>
       </dl>
       <div class="ab-cols">
         <div>
           <h3><span class="l-en">Our story</span><span class="l-ar" lang="ar">قصتنا</span></h3>
           <p class="l-en">Orevia was founded by Syrians who wanted to put their experience to work for their country as it entered a new era. Syria's resources and markets were reopening, but serious investors had no clear way in: who to speak to, which approvals they need, and whom to trust. Orevia exists to close that gap and to bring the country's resources to the investors who can develop them.</p>
-          <p class="l-ar" lang="ar">أسّس أوريفيا سوريون أرادوا أن يسخّروا خبراتهم لخدمة وطنهم وهو يدخل مرحلةً جديدة. فمع عودة موارد سوريا وأسواقها إلى الانفتاح، وجد المستثمرون الجادّون أنفسهم أمام أسئلة بلا إجابات واضحة: مع من يتواصلون؟ وما الموافقات التي يحتاجونها؟ وبمن يمكنهم أن يثقوا؟ ومن هنا جاءت أوريفيا لتسدّ هذه الفجوة، وتفتح الطريق أمام المستثمرين القادرين على تنمية موارد البلاد.</p>
+          <p class="l-ar" lang="ar">أسّس أوريفيا سوريون أرادوا أن يسخّروا خبراتهم لخدمة وطنهم وهو يدخل مرحلةً جديدة. فمع عودة موارد سوريا وأسواقها إلى الانفتاح، وجد المستثمرون الجادّون أنفسهم أمام أسئلة بلا إجابات واضحة: مع من يتواصلون؟ وما الموافقات التي يحتاجون إليها؟ وبمن يمكنهم أن يثقوا؟ ومن هنا جاءت أوريفيا لتسدّ هذه الفجوة، وتفتح الطريق أمام المستثمرين القادرين على تنمية موارد البلاد.</p>
           <p class="l-en">We have been licensed and operating in Dubai since 2021, and active on the ground in Syria since December 2024.</p>
-          <p class="l-ar" lang="ar">نعمل في دبي بترخيص رسمي منذ عام ٢٠٢١، ونمارس نشاطنا ميدانيًا في سوريا منذ ديسمبر ٢٠٢٤.</p>
+          <p class="l-ar" lang="ar">نعمل في دبي بترخيص رسمي منذ عام ٢٠٢١، ونمارس نشاطنا ميدانيًا في سوريا منذ كانون الأول ٢٠٢٤.</p>
         </div>
         <div>
           <h3><span class="l-en">What we do</span><span class="l-ar" lang="ar">ما نقدّمه</span></h3>
@@ -486,26 +510,6 @@ body.ar .ab-cols h3,body.ar .ab-low h3{font-size:clamp(19px,1.8vw,23px)}
           </dl>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section id="news" aria-labelledby="news-h">
-    <div class="wrap">
-      <div class="news-top">
-        <div>
-          <h2 id="news-h" data-i="news.title">Syria economy watch</h2>
-          <p class="lede" data-i="news.lede">Recent business headlines about Syria, sorted by sector and mapped to the governorates they mention.</p>
-        </div>
-        <span class="status" id="newsStatus"><i></i><span></span></span>
-      </div>
-      <div class="chips" id="chips" role="group" aria-label="Filter by sector"></div>
-      <div class="track" id="track" tabindex="0" aria-label="Headlines"></div>
-      <div class="news-ctrl">
-        <button type="button" id="prev" aria-label="Previous headline"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
-        <div class="prog" aria-hidden="true"><b id="progBar"></b></div>
-        <button type="button" id="next" aria-label="Next headline"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
-      </div>
-      <p class="disclaimer" data-i="news.disc">Headlines link to third-party publishers. Orevia is not responsible for their content.</p>
     </div>
   </section>
 
@@ -543,8 +547,8 @@ body.ar .ab-cols h3,body.ar .ab-low h3{font-size:clamp(19px,1.8vw,23px)}
       <nav class="fnav" aria-label="Footer">
         <a href="#where" data-i="nav.where">Where we work</a>
         <a href="#approach" data-i="nav.approach">How we work</a>
-        <a href="#about" data-i="nav.about">About</a>
         <a href="#news" data-i="nav.news">Economy watch</a>
+        <a href="#about" data-i="nav.about">About</a>
         <a href="#contact" data-i="nav.contact">Contact</a>
       </nav>
     </div>
@@ -565,8 +569,12 @@ var SITE = {
   ],
   whatsapp: "",              // international, digits only; leave "" to hide WhatsApp everywhere
   email: "sales@oreviatrade.com",
-  address: { en: "Orfali Building, Jaber Bin Hayan Street, Damascus, Syria",
-             ar: "بناء العرفلي، شارع جابر بن حيان، دمشق، سوريا" },
+  offices: [                // shown in this order under the phones and email
+    { key: "k.adxb", en: "Office 102, Mohamed Abdulaziz Mohamed Bin Fares Building, Al Murar, Dubai, UAE",
+                     ar: "مكتب رقم ١٠٢، ملك محمد عبدالعزيز محمد بن فارس، المرر، دبي، الإمارات العربية المتحدة" },
+    { key: "k.asyr", en: "Orfali Building, Jaber Bin Hayan Street, Damascus, Syria",
+                     ar: "بناء العرفلي، شارع جابر بن حيان، دمشق، سوريا" }
+  ],
   web3formsKey: "628b8415-4696-476f-bb8a-0cd0ab344d48" // from web3forms.com; enquiries go to the email the key was made with
 };
 /* Live news via Google News RSS + rss2json. false = curated list only. */
@@ -594,7 +602,7 @@ var T={
   'news.disc':'Headlines link to third-party publishers. Orevia is not responsible for their content.',
   'news.live':'LIVE FEED','news.curated':"EDITOR'S PICKS",'news.all':'All','news.empty':'No headlines in this sector right now. Try All.','news.national':'National',
   'ct.title':'Tell us what you want to build in Syria.','ct.lede':"Share the sector, the governorate and the outcome you're after. We reply directly.",
-  'k.phone':'Phone','k.dxb':'Phone, Dubai','k.syr':'Phone, Syria','b.dxb':'Call Dubai','b.syr':'Call Syria','k.wa':'WhatsApp','k.email':'Email','k.addr':'Office',
+  'k.phone':'Phone','k.dxb':'Phone, Dubai','k.syr':'Phone, Syria','b.dxb':'Call Dubai','b.syr':'Call Syria','k.wa':'WhatsApp','k.email':'Email','k.addr':'Office','k.adxb':'Office, Dubai','k.asyr':'Office, Syria',
   'ph.phone':'Phone number to be added','ph.wa':'WhatsApp number to be added','ph.email':'Email to be added','ph.addr':'Office address to be added',
   'b.wa':'Message on WhatsApp','b.call':'Call','b.email':'Email us','b.copy':'Copy','b.copied':'Copied',
   'f.name':'Full name','f.company':'Company','f.email':'Email','f.phone':'Phone','f.sector':'Sector','f.gov':'Governorate',
@@ -612,26 +620,26 @@ var T={
   'nav.where':'أين نعمل','nav.approach':'آلية عملنا','nav.about':'من نحن','nav.news':'مرصد الاقتصاد','nav.contact':'تواصل معنا',
   'lg.privacy':'سياسة الخصوصية','lg.terms':'شروط الاستخدام','lg.disc':'إخلاء المسؤولية','f.note':'بإرسالك الطلب، فإنك توافق على <a href="privacy.html">سياسة الخصوصية</a>.',
   'cta':'ناقش مشروعك معنا','hero.see':'اكتشف أين نعمل',
-  'hero.title':'التجارة في <em>كل سوريا.</em>',
-  'hero.sub':'نسهّل الأعمال والتجارة في المحافظات الأربع عشرة: النفط والفوسفات والكهرباء والعقارات والخدمات اللوجستية.',
+  'hero.title':'التجارة في <em>أنحاء سوريا كافة.</em>',
+  'hero.sub':'نيسّر الأعمال والتجارة في المحافظات السورية الأربع عشرة، في قطاعات النفط والفوسفات والكهرباء والعقارات والخدمات اللوجستية.',
   'where.title':'أين يجري العمل','explore.mine':'اكتشف الفوسفات السوري','explore.oil':'اكتشف النفط السوري','explore.power':'اكتشف قطاع الكهرباء','explore.estate':'اكتشف العقار السوري','explore.logi':'اكتشف اللوجستيات في سوريا',
-  'where.lede':'خمسة قطاعات، لكلٍّ منها جغرافيته. تابع التمرير لترى المحافظات التي يشملها كل قطاع.',
+  'where.lede':'خمسة قطاعات، لكلٍّ منها نطاقه الجغرافي. تابع التمرير لترى المحافظات التي يشملها كل قطاع.',
   'map.of':'من ١٤ محافظة','map.all':'كل القطاعات',
-  'where.label':'أين:','ask':'ناقش',
+  'where.label':'النطاق الجغرافي:','ask':'ناقش',
   'ap.title':'كيف نعمل معك','ap.lede':'فريق واحد يرافق مشروعك من المحادثة الأولى حتى التنفيذ على الأرض.',
-  'news.title':'مرصد الاقتصاد السوري','news.lede':'أحدث عناوين الأعمال عن سوريا، مصنفة حسب القطاع ومرتبطة بالمحافظات التي تذكرها.',
+  'news.title':'مرصد الاقتصاد السوري','news.lede':'أحدث عناوين الأعمال عن سوريا، مصنّفةً بحسب القطاع ومربوطةً بالمحافظات الواردة فيها.',
   'news.disc':'تحيل العناوين إلى ناشرين خارجيين، ولا تتحمل أوريفيا مسؤولية محتواها.',
   'news.live':'مباشر','news.curated':'مختارات المحرر','news.all':'الكل','news.empty':'لا توجد عناوين في هذا القطاع حاليًا. جرّب «الكل».','news.national':'على المستوى الوطني',
-  'ct.title':'أخبرنا بما تريد بناءه في سوريا.','ct.lede':'شاركنا القطاع والمحافظة والنتيجة التي تسعى إليها، وسنرد عليك مباشرة.',
-  'k.phone':'الهاتف','k.dxb':'الهاتف، دبي','k.syr':'الهاتف، سوريا','b.dxb':'اتصل بدبي','b.syr':'اتصل بسوريا','k.wa':'واتساب','k.email':'البريد','k.addr':'المكتب',
+  'ct.title':'أخبرنا بما تريد بناءه في سوريا.','ct.lede':'أطلِعنا على القطاع والمحافظة والنتيجة التي تسعى إليها، وسنردّ عليك مباشرة.',
+  'k.phone':'الهاتف','k.dxb':'الهاتف، دبي','k.syr':'الهاتف، سوريا','b.dxb':'اتصل بمكتب دبي','b.syr':'اتصل بفرع سوريا','k.wa':'واتساب','k.email':'البريد','k.addr':'المكتب','k.adxb':'مكتب دبي','k.asyr':'فرع سوريا',
   'ph.phone':'سيُضاف رقم الهاتف','ph.wa':'سيُضاف رقم واتساب','ph.email':'سيُضاف البريد الإلكتروني','ph.addr':'سيُضاف عنوان المكتب',
   'b.wa':'راسلنا على واتساب','b.call':'اتصل بنا','b.email':'راسلنا بالبريد','b.copy':'نسخ','b.copied':'تم النسخ',
   'f.name':'الاسم الكامل','f.company':'الشركة','f.email':'البريد الإلكتروني','f.phone':'الهاتف','f.sector':'القطاع','f.gov':'المحافظة',
   'f.msg':'ما الذي تود تحقيقه؟','f.send':'أرسل الطلب','f.sending':'جارٍ الإرسال…',
-  'f.ok':'تم إرسال طلبك. سنرد على بريدك الإلكتروني.',
+  'f.ok':'أُرسل طلبك بنجاح، وسنردّ عليك عبر البريد الإلكتروني الذي أدخلته.',
   'f.err':'لم يُرسل الطلب. تحقق من الاتصال وحاول مجددًا، أو راسلنا مباشرة بالبريد الإلكتروني.',
-  'f.missing':'أضف اسمك وبريدًا إلكترونيًا صحيحًا ورسالة، ثم أعد الإرسال.',
-  'f.nokey':'النموذج غير مفعّل بعد. يرجى مراسلتنا بالبريد الإلكتروني أو الاتصال بنا حاليًا.',
+  'f.missing':'يُرجى إدخال اسمك وبريد إلكتروني صحيح ونص الرسالة، ثم إعادة الإرسال.',
+  'f.nokey':'النموذج غير مفعّل بعد. يُرجى في الوقت الحالي مراسلتنا عبر البريد الإلكتروني أو الاتصال بنا.',
   'f.any':'لم يُحدد بعد',
   'wa.msg':'مرحبًا أوريفيا، أود مناقشة مشروع في سوريا.',
   'wa.sec':'مرحبًا أوريفيا، أود مناقشة مشروع في قطاع {s} في سوريا.'
@@ -661,19 +669,19 @@ var SECTORS=[
  {id:'oil',img:'assets/sector-oil.webp',page:'oil.html',
   govs:['deir','hasakah','raqqa','homs','tartus'], routes:[['rmelan','deirCity','homsCity','baniyas'],['omar','deirCity']], marks:['rmelan','omar','homsRef','baniyas'],
   en:['Oil & Petroleum',"Crude, refined products and fuel trade. We connect investors, traders and suppliers with opportunities across Syria's oil value chain.","Oil fields in Deir ez-Zor, Hasakah and Raqqa. Refineries in Homs and Baniyas, in Tartus governorate."],
-  ar:['النفط والمشتقات النفطية','النفط الخام والمشتقات وتجارة الوقود. نربط المستثمرين والتجار والموردين بالفرص عبر سلسلة قيمة النفط في سوريا.','حقول النفط في دير الزور والحسكة والرقة، والمصافي في حمص وبانياس بمحافظة طرطوس.']},
+  ar:['النفط والمشتقات النفطية','النفط الخام والمشتقات وتجارة الوقود. نربط المستثمرين والتجار والموردين بالفرص على امتداد سلسلة القيمة النفطية في سوريا.','حقول النفط في دير الزور والحسكة والرقة، والمصافي في حمص وبانياس بمحافظة طرطوس.']},
  {id:'mine',img:'assets/sector-mining.webp',page:'phosphate.html',
   govs:['homs','tartus'], routes:[['phosphate','homsCity','tartusPort']], marks:['phosphate','tartusPort'], hide:['homs','tartus'],
   en:['Phosphate & Mining','Extraction, processing and export of phosphate and other minerals, from the mine site to the port.','Phosphate mines near Palmyra in Homs governorate, moving west toward the port of Tartus.'],
-  ar:['الفوسفات والتعدين','استخراج الفوسفات والمعادن الأخرى ومعالجتها وتصديرها، من موقع المنجم حتى الميناء.','مناجم الفوسفات قرب تدمر في محافظة حمص، ومنها غربًا نحو مرفأ طرطوس.']},
+  ar:['الفوسفات والتعدين','استخراج الفوسفات والمعادن الأخرى ومعالجتها وتصديرها، من موقع المنجم حتى الميناء.','مناجم الفوسفات قرب تدمر في محافظة حمص، ويُنقل منها غربًا إلى مرفأ طرطوس.']},
  {id:'power',img:'assets/sector-power.webp',page:'power.html',
   govs:GOV_KEYS.slice(), routes:GRID, marks:[],
   en:['Electrical Infrastructure','Generation, transmission and distribution projects, including grid rehabilitation and renewable power.','Every governorate is on the national grid, so power projects can reach all 14.'],
-  ar:['البنية التحتية الكهربائية','مشاريع التوليد والنقل والتوزيع، بما فيها إعادة تأهيل الشبكة والطاقة المتجددة.','كل المحافظات موصولة بالشبكة الوطنية، لذا تصل مشاريع الكهرباء إلى المحافظات الأربع عشرة.']},
+  ar:['البنية التحتية الكهربائية','مشاريع التوليد والنقل والتوزيع، بما فيها إعادة تأهيل الشبكة والطاقة المتجددة.','جميع المحافظات مرتبطة بالشبكة الوطنية، لذا يمكن أن تمتد مشاريع الكهرباء إلى المحافظات الأربع عشرة كلها.']},
  {id:'estate',img:'assets/sector-realestate.webp',page:'estate.html',
   govs:['damascus','rif','aleppo','homs'], routes:[], marks:['damascusCity','aleppoCity','homsCity'], hide:['aleppo','homs'],
   en:['Real Estate Development',"Residential, commercial and mixed-use development as Syria's cities rebuild.",'The largest urban markets are Damascus and its countryside, Aleppo and Homs.'],
-  ar:['التطوير العقاري','التطوير السكني والتجاري ومتعدد الاستخدامات مع إعادة إعمار المدن السورية.','أكبر الأسواق الحضرية في دمشق وريفها وحلب وحمص.']},
+  ar:['التطوير العقاري','مشاريع التطوير السكني والتجاري والمتعدد الاستخدامات في ظل إعادة إعمار المدن السورية.','أكبر الأسواق الحضرية في دمشق وريفها وحلب وحمص.']},
  {id:'logi',img:'assets/sector-logistics.webp',page:'logistics.html',
   govs:['latakia','tartus','idlib','deir','daraa','rif'], routes:[['tartusPort','homsCity','palmyra','bukamal'],['tartusPort','homsCity','damascusCity','nasib'],['latakiaPort','babAlHawa'],['damascusCity','yabous']],
   marks:['latakiaPort','tartusPort','babAlHawa','bukamal','nasib','yabous'], hide:['latakia','tartus','daraa'],
@@ -685,7 +693,7 @@ function secById(id){for(var i=0;i<SECTORS.length;i++)if(SECTORS[i].id===id)retu
 
 var STEPS={
  en:[['Brief','Tell us what you want to achieve, in which sector and governorate.'],['Map','We identify the counterparts, sites, permits and routes involved.'],['Connect','We introduce the right partners and coordinate between them.'],['Follow through','We stay with you on the ground until delivery.']],
- ar:[['الفكرة','أخبرنا بما تريد تحقيقه، وفي أي قطاع ومحافظة.'],['التخطيط','نحدد الأطراف والمواقع والتراخيص والمسارات اللازمة.'],['الربط','نعرّفك على الشركاء المناسبين وننسّق بينهم.'],['المتابعة','نبقى معك على الأرض حتى التنفيذ.']]
+ ar:[['الفكرة','أخبرنا بما تريد تحقيقه، وفي أي قطاع ومحافظة.'],['التخطيط','نحدد الأطراف والمواقع والتراخيص والمسارات اللازمة.'],['الربط','نعرّفك بالشركاء المناسبين وننسّق بينهم.'],['المتابعة','نرافقك ميدانيًا حتى التنفيذ.']]
 };
 
 /* Curated headlines (checked Sep 2026). Update freely. */
@@ -699,7 +707,7 @@ var CURATED=[
  {d:'2026-08-19',s:'The National',sec:'oil',u:'https://www.thenationalnews.com/business/energy/2026/08/19/turkey-moves-into-syria-oil-and-gas-sector-with-exploration-plans/',img:'https://www.thenationalnews.com/resizer/v2/SATMJU5VTRFHFGU42B5YQIVM4Y.jpg?auth=bceb40f7249e1610136f1b09b8896f36c6bc6983d16573c326e06bde17edf16c&smart=true&width=1200&height=630',en:'Turkey moves into Syria oil and gas sector with exploration plans',ar:'تركيا تدخل قطاع النفط والغاز السوري بخطط للتنقيب'},
  {d:'2026-08-19',s:'Anadolu Agency',sec:'mine',u:'https://www.aa.com.tr/en/energy/general/turkiye-syria-sign-phosphate-deal-to-strengthen-strategic-partnership/59128',img:'https://cdnuploads.aa.com.tr/uploads/enerjiterminali/Contents/2026/08/19/thumbs_b_c_edbd1ec4a2eca245393a45470e91d724.jpg?v=152622',en:'Türkiye, Syria sign phosphate deal, including a railway from mines to port',ar:'تركيا وسوريا توقعان اتفاقًا للفوسفات يشمل سكة حديد من المناجم إلى الميناء'},
  {d:'2026-08-05',s:'Enab Baladi',sec:'power',u:'https://english.enabbaladi.net/archives/2026/08/syrian-electricity-signs-1-billion-saudi-solar-deals/amp/',img:'https://cdn.enabbaladi.net/english/wp-content/uploads/2026/08/Syrian-Saudi-agreements.jpg',en:'Syrian Electricity signs $1 billion Saudi solar deals for Rural Damascus',ar:'الكهرباء السورية توقع اتفاقيات طاقة شمسية سعودية بمليار دولار في ريف دمشق'},
- {d:'2026-01-19',s:'SANA',sec:'mine',u:'https://sana.sy/en/investment/2291311/',img:'https://cdn.sananews.sy/2026/01/Syria-signs-two-major-phosphate-deals-to-boost-exports-and-investment.jpg',en:'Syria signs two major phosphate deals to boost exports and investment',ar:'سوريا توقع اتفاقيتين كبيرتين في الفوسفات لتعزيز الصادرات والاستثمار'}
+ {d:'2026-01-19',s:'SANA',sec:'mine',u:'https://sana.sy/en/investment/2291311/',img:'https://cdn.sananews.sy/2026/01/Syria-signs-two-major-phosphate-deals-to-boost-exports-and-investment.jpg',en:'Syria signs two major phosphate deals to boost exports and investment',ar:'سوريا توقّع اتفاقيتين كبيرتين في قطاع الفوسفات لتعزيز الصادرات والاستثمار'}
 ];
 
 function t(k){return (T[LANG]&&T[LANG][k])||T.en[k]||k}
@@ -805,8 +813,7 @@ function row(k,val,ph,copy,ltr){
   return '<span class="k">'+t(k)+'</span><span class="v">'+v+'</span>';
 }
 function renderContact(){
-  var addr=SITE.address[LANG]||SITE.address.en;
-  document.getElementById('cinfo').innerHTML=(SITE.phones.length?SITE.phones.map(function(p){return row(p.key,p.display,'ph.phone',true,true)}).join(''):row('k.phone','','ph.phone',true))+(SITE.whatsapp?row('k.wa','+'+SITE.whatsapp,'ph.wa',true,true):'')+row('k.email',SITE.email,'ph.email',true,true)+row('k.addr',addr,'ph.addr',false);
+  document.getElementById('cinfo').innerHTML=(SITE.phones.length?SITE.phones.map(function(p){return row(p.key,p.display,'ph.phone',true,true)}).join(''):row('k.phone','','ph.phone',true))+(SITE.whatsapp?row('k.wa','+'+SITE.whatsapp,'ph.wa',true,true):'')+row('k.email',SITE.email,'ph.email',true,true)+(SITE.offices.length?SITE.offices.map(function(o){return row(o.key,o[LANG]||o.en,'ph.addr',false)}).join(''):row('k.addr','','ph.addr',false));
   var bt=[];
   if(SITE.whatsapp)bt.push('<a class="btn btn-brass" target="_blank" rel="noopener" href="'+waLink()+'">'+t('b.wa')+'</a>');
   if(SITE.email)bt.push('<a class="btn '+(SITE.whatsapp?'btn-line':'btn-brass')+'" href="mailto:'+SITE.email+'">'+t('b.email')+'</a>');
@@ -1095,6 +1102,20 @@ function setLang(l){
 }
 document.getElementById('langBtn').addEventListener('click',function(){setLang(LANG==='en'?'ar':'en')});
 document.getElementById('yr').textContent=new Date().getFullYear();
+/* ---------- About: count-up figures ---------- */
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.ab-facts .cnt')); if(!els.length||reduce||!('IntersectionObserver' in window))return;
+  var AR='٠١٢٣٤٥٦٧٨٩';function fmt(v,ar){var t=String(v);return ar?t.replace(/\d/g,function(d){return AR[d]}):t}
+  els.forEach(function(e){e.textContent=fmt(0,e.dataset.ar)});
+  var done=false;
+  var io=new IntersectionObserver(function(es){if(done||!es[0].isIntersecting)return;done=true;io.disconnect();
+    var t0=performance.now(),D=1600;
+    (function step(now){var k=Math.min(1,(now-t0)/D),e=1-Math.pow(1-k,3);
+      els.forEach(function(el){var n=+el.dataset.n;el.textContent=fmt(Math.round(n*e),el.dataset.ar)});
+      if(k<1)requestAnimationFrame(step)})(t0);
+  },{threshold:.5});
+  io.observe(document.querySelector('.ab-facts'));
+})();
 var start='en';try{start=localStorage.getItem('ple-lang')||(location.hash==='#ar'?'ar':'en')}catch(e){if(location.hash==='#ar')start='ar'}
 setLang(start);
 (function(){/* preselect the sector when arriving from a sector page, e.g. ./?sector=mine#contact */

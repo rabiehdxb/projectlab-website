@@ -279,7 +279,7 @@ footer .wrap{display:grid;gap:40px}
 .ftop img{width:min(220px,62vw);height:auto}
 .fnav{display:flex;flex-wrap:wrap;gap:22px}
 .fnav a{text-decoration:none}.fnav a:hover{color:var(--text)}
-.fbot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:13px;color:var(--text-3)}
+.fbot{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;font-size:13px;color:var(--text-3)}
 
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
@@ -319,7 +319,7 @@ body.ar .motion-toggle{font-family:var(--arabic)}
 @media (max-width:700px){.motion-toggle{bottom:auto;top:84px}}
 @media (prefers-reduced-motion: reduce){.motion-toggle{display:none}}
 /* Touch targets */
-@media (pointer:coarse),(max-width:760px){.lang{min-height:44px!important}.chip{min-height:44px}.lang{min-height:44px;min-width:44px}.fnav a{display:inline-block;padding-block:12px}}
+@media (pointer:coarse),(max-width:760px){.lang{min-height:44px!important}.chip{min-height:44px}.lang{min-height:44px;min-width:44px}.fnav a,.flegal a{display:inline-block;padding-block:12px}}
 /* About */
 body:not(.ar) .l-ar,body.ar .l-en{display:none}
 .about{border-bottom:1px solid var(--line)}
@@ -328,25 +328,27 @@ body:not(.ar) .l-ar,body.ar .l-en{display:none}
 .about h2{font-size:clamp(38px,5vw,64px);text-transform:uppercase;max-width:14ch}
 body.ar .about h2{font-size:clamp(30px,3.6vw,46px);max-width:none}
 .ab-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:clamp(40px,5vw,64px) 0 0;border-block:1px solid var(--line-2)}
-.ab-facts>div{padding:22px 20px 24px;border-inline-start:1px solid var(--line)}
-.ab-facts>div:first-child{border-inline-start:0;padding-inline-start:0}
+.ab-facts>div{padding:24px 16px 26px;border-inline-start:1px solid var(--line);text-align:center}
+.ab-facts>div:first-child{border-inline-start:0}
+.ab-facts .cnt{font-weight:inherit;font-variant-numeric:tabular-nums}
 .ab-facts dt{font:500 clamp(26px,3vw,40px)/1.05 var(--mono);color:var(--accent-text);letter-spacing:-.01em}
 body.ar .ab-facts dt{font-family:var(--ar-head);font-weight:800;letter-spacing:0}
 .ab-facts dd{margin:10px 0 0;color:var(--text-2);font-size:14.5px;line-height:1.45}
 .ab-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(28px,4vw,56px);margin-top:clamp(48px,6vw,80px)}
 .ab-cols h3,.ab-low h3{font-size:clamp(22px,2.2vw,28px);text-transform:uppercase;margin-bottom:14px}
 body.ar .ab-cols h3,body.ar .ab-low h3{font-size:clamp(19px,1.8vw,23px)}
-.ab-cols p{color:var(--text-2);margin:0 0 12px}
+.ab-cols p{color:var(--text-2);margin:0 0 12px;text-align:justify;text-justify:inter-word;hyphens:auto}
+body.ar .ab-cols p{hyphens:none}
 .ab-low{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);margin-top:clamp(52px,6vw,88px)}
 .ab-dir{margin:0;border-bottom:1px solid var(--line)}
 .ab-dir>div{display:grid;grid-template-columns:minmax(120px,.42fr) 1fr;gap:6px 22px;padding:15px 0;border-top:1px solid var(--line)}
 .ab-dir dt{color:var(--text);font-weight:600}
 .ab-dir dd{margin:0;color:var(--text-2)}
 .ab-dir dd [dir=ltr]{unicode-bidi:isolate}
-@media (max-width:900px){.ab-top,.ab-low{grid-template-columns:1fr}.ab-cols{grid-template-columns:1fr}.ab-facts{grid-template-columns:1fr 1fr}.ab-facts>div:nth-child(3){border-inline-start:0;padding-inline-start:0}.ab-facts>div:nth-child(n+3){border-top:1px solid var(--line)}}
+@media (max-width:900px){.ab-top,.ab-low{grid-template-columns:1fr}.ab-cols{grid-template-columns:1fr}.ab-facts{grid-template-columns:1fr 1fr}.ab-facts>div:nth-child(3){border-inline-start:0}.ab-facts>div:nth-child(n+3){border-top:1px solid var(--line)}}
 @media (max-width:520px){.ab-dir>div{grid-template-columns:1fr}.ab-facts dt{font-size:24px}body.ar .ab-facts dt{font-size:21px}}
 /* Footer legal links + form note */
-.flegal{display:flex;flex-wrap:wrap;gap:6px 20px}
+.flegal{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 24px;order:-1}
 .flegal a{color:var(--text-3);text-decoration:none}.flegal a:hover{color:var(--text)}
 .fnote{flex-basis:100%;margin:0;font-size:13px;color:var(--text-3)}
 .fnote a{color:var(--text-2)}
@@ -382,8 +384,8 @@ body.ar .lg-doc h2{font-size:clamp(19px,1.8vw,23px);text-transform:none}
     <nav class="main" aria-label="Main">
       <a href="./#where" data-i="nav.where">Where we work</a>
       <a href="./#approach" data-i="nav.approach">How we work</a>
-      <a href="./#about" data-i="nav.about">About</a>
       <a href="./#news" data-i="nav.news">Economy watch</a>
+      <a href="./#about" data-i="nav.about">About</a>
       <a href="./#contact" data-i="nav.contact">Contact</a>
     </nav>
     <div class="hdr-actions">
@@ -397,7 +399,7 @@ body.ar .lg-doc h2{font-size:clamp(19px,1.8vw,23px);text-transform:none}
   <section class="lg-hero" aria-labelledby="h1">
     <div class="wrap">
       <h1 id="h1"><span class="l-en">Terms of Use</span><span class="l-ar" lang="ar">شروط الاستخدام</span></h1>
-      <p class="upd"><span class="l-en">Last updated: 14 October 2026</span><span class="l-ar" lang="ar">آخر تحديث: ١٤ أكتوبر ٢٠٢٦</span></p>
+      <p class="upd"><span class="l-en">Last updated: 14 October 2026</span><span class="l-ar" lang="ar">آخر تحديث: ١٤ تشرين الأول ٢٠٢٦</span></p>
     </div>
   </section>
   <section class="lg-body">
@@ -427,12 +429,12 @@ body.ar .lg-doc h2{font-size:clamp(19px,1.8vw,23px);text-transform:none}
       <article class="lg-doc l-ar" lang="ar">
 <h2>١. نطاق الشروط</h2>
 <p>تسري هذه الشروط على استخدامك للموقع www.oreviatrade.com الذي تديره شركة اوريفيا للوساطة التجارية ذ.م.م (الرخصة التجارية رقم ٩٥٢٦٨١، دبي). وباستخدامك الموقع فإنك توافق على هذه الشروط.</p>
-<h2>٢. لأغراض المعلومات فقط</h2>
+<h2>٢. لأغراض إعلامية فقط</h2>
 <p>يقدّم الموقع معلومات عامة عن القطاعات الاقتصادية في سوريا وعن خدماتنا، ولا يُعدّ أي محتوى فيه عرضًا أو دعوةً أو استشارةً من أي نوع.</p>
 <h2>٣. دورنا</h2>
 <p>تعمل أوريفيا وسيطًا تجاريًا وجهةً ميسِّرة، ولا يُنشئ إرسال الاستفسار علاقةً تعاقدية، إذ يخضع أي تعاقد لاتفاقية خطية مستقلة.</p>
 <h2>٤. دقة المعلومات</h2>
-<p>الأرقام والأوصاف الواردة في الموقع مستقاة من مصادر عامة ومن معرفتنا، وقد تتغيّر أو تصبح قديمة، ولا نضمن اكتمالها أو دقتها أو حداثتها.</p>
+<p>الأرقام والأوصاف الواردة في الموقع مستقاة من مصادر عامة ومن خبرتنا، وقد تتغيّر أو تصبح قديمة، ولا نضمن اكتمالها أو دقتها أو حداثتها.</p>
 <h2>٥. الروابط والأخبار</h2>
 <p>يتضمن الموقع روابط إلى مصادر إخبارية خارجية ويعرض عناوينها، ولا نتحكم في هذا المحتوى ولا نتحمّل مسؤوليته.</p>
 <h2>٦. الملكية الفكرية</h2>
@@ -457,8 +459,8 @@ body.ar .lg-doc h2{font-size:clamp(19px,1.8vw,23px);text-transform:none}
       <nav class="fnav" aria-label="Footer">
         <a href="./#where" data-i="nav.where">Where we work</a>
         <a href="./#approach" data-i="nav.approach">How we work</a>
-        <a href="./#about" data-i="nav.about">About</a>
         <a href="./#news" data-i="nav.news">Economy watch</a>
+        <a href="./#about" data-i="nav.about">About</a>
         <a href="./#contact" data-i="nav.contact">Contact</a>
       </nav>
     </div>

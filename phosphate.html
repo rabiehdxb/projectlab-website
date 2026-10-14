@@ -279,7 +279,7 @@ footer .wrap{display:grid;gap:40px}
 .ftop img{width:min(220px,62vw);height:auto}
 .fnav{display:flex;flex-wrap:wrap;gap:22px}
 .fnav a{text-decoration:none}.fnav a:hover{color:var(--text)}
-.fbot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:13px;color:var(--text-3)}
+.fbot{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;font-size:13px;color:var(--text-3)}
 
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
@@ -319,7 +319,7 @@ body.ar .motion-toggle{font-family:var(--arabic)}
 @media (max-width:700px){.motion-toggle{bottom:auto;top:84px}}
 @media (prefers-reduced-motion: reduce){.motion-toggle{display:none}}
 /* Touch targets */
-@media (pointer:coarse),(max-width:760px){.lang{min-height:44px!important}.chip{min-height:44px}.lang{min-height:44px;min-width:44px}.fnav a{display:inline-block;padding-block:12px}}
+@media (pointer:coarse),(max-width:760px){.lang{min-height:44px!important}.chip{min-height:44px}.lang{min-height:44px;min-width:44px}.fnav a,.flegal a{display:inline-block;padding-block:12px}}
 /* About */
 body:not(.ar) .l-ar,body.ar .l-en{display:none}
 .about{border-bottom:1px solid var(--line)}
@@ -328,25 +328,27 @@ body:not(.ar) .l-ar,body.ar .l-en{display:none}
 .about h2{font-size:clamp(38px,5vw,64px);text-transform:uppercase;max-width:14ch}
 body.ar .about h2{font-size:clamp(30px,3.6vw,46px);max-width:none}
 .ab-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:clamp(40px,5vw,64px) 0 0;border-block:1px solid var(--line-2)}
-.ab-facts>div{padding:22px 20px 24px;border-inline-start:1px solid var(--line)}
-.ab-facts>div:first-child{border-inline-start:0;padding-inline-start:0}
+.ab-facts>div{padding:24px 16px 26px;border-inline-start:1px solid var(--line);text-align:center}
+.ab-facts>div:first-child{border-inline-start:0}
+.ab-facts .cnt{font-weight:inherit;font-variant-numeric:tabular-nums}
 .ab-facts dt{font:500 clamp(26px,3vw,40px)/1.05 var(--mono);color:var(--accent-text);letter-spacing:-.01em}
 body.ar .ab-facts dt{font-family:var(--ar-head);font-weight:800;letter-spacing:0}
 .ab-facts dd{margin:10px 0 0;color:var(--text-2);font-size:14.5px;line-height:1.45}
 .ab-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(28px,4vw,56px);margin-top:clamp(48px,6vw,80px)}
 .ab-cols h3,.ab-low h3{font-size:clamp(22px,2.2vw,28px);text-transform:uppercase;margin-bottom:14px}
 body.ar .ab-cols h3,body.ar .ab-low h3{font-size:clamp(19px,1.8vw,23px)}
-.ab-cols p{color:var(--text-2);margin:0 0 12px}
+.ab-cols p{color:var(--text-2);margin:0 0 12px;text-align:justify;text-justify:inter-word;hyphens:auto}
+body.ar .ab-cols p{hyphens:none}
 .ab-low{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);margin-top:clamp(52px,6vw,88px)}
 .ab-dir{margin:0;border-bottom:1px solid var(--line)}
 .ab-dir>div{display:grid;grid-template-columns:minmax(120px,.42fr) 1fr;gap:6px 22px;padding:15px 0;border-top:1px solid var(--line)}
 .ab-dir dt{color:var(--text);font-weight:600}
 .ab-dir dd{margin:0;color:var(--text-2)}
 .ab-dir dd [dir=ltr]{unicode-bidi:isolate}
-@media (max-width:900px){.ab-top,.ab-low{grid-template-columns:1fr}.ab-cols{grid-template-columns:1fr}.ab-facts{grid-template-columns:1fr 1fr}.ab-facts>div:nth-child(3){border-inline-start:0;padding-inline-start:0}.ab-facts>div:nth-child(n+3){border-top:1px solid var(--line)}}
+@media (max-width:900px){.ab-top,.ab-low{grid-template-columns:1fr}.ab-cols{grid-template-columns:1fr}.ab-facts{grid-template-columns:1fr 1fr}.ab-facts>div:nth-child(3){border-inline-start:0}.ab-facts>div:nth-child(n+3){border-top:1px solid var(--line)}}
 @media (max-width:520px){.ab-dir>div{grid-template-columns:1fr}.ab-facts dt{font-size:24px}body.ar .ab-facts dt{font-size:21px}}
 /* Footer legal links + form note */
-.flegal{display:flex;flex-wrap:wrap;gap:6px 20px}
+.flegal{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 24px;order:-1}
 .flegal a{color:var(--text-3);text-decoration:none}.flegal a:hover{color:var(--text)}
 .fnote{flex-basis:100%;margin:0;font-size:13px;color:var(--text-3)}
 .fnote a{color:var(--text-2)}
@@ -645,8 +647,8 @@ body:not(.ar) .l-ar,body.ar .l-en{display:none}
       <nav class="fnav" aria-label="Footer">
         <a href="./#where" data-i="nav.where">Where we work</a>
         <a href="./#approach" data-i="nav.approach">How we work</a>
-        <a href="./#about" data-i="nav.about">About</a>
         <a href="./#news" data-i="nav.news">Economy watch</a>
+        <a href="./#about" data-i="nav.about">About</a>
         <a href="./#contact" data-i="nav.contact">Contact</a>
       </nav>
     </div>
@@ -719,41 +721,41 @@ var T={
   'facts.aria':'أرقام رئيسية',
   'f1.v':'٢٨–٣٤٪','f1.k':'نسبة P₂O₅ في طبقات خنيفيس والشرقية',
   'f2.v':'≈٢ مليار طن','f2.k':'احتياطي مؤكد',
-  'f3.v':'٣ ملغ/كغ','f3.k':'كادميوم في عينة من خنيفيس، مقابل ١٥–٣٢ جزءًا بالمليون في الصخر المغربي',
-  'f4.v':'الخامسة','f4.k':'بين أكبر مصدّري الفوسفات في العالم قبل عام ٢٠١١',
+  'f3.v':'٣ ملغ/كغ','f3.k':'كادميوم في عينة من خنيفيس، مقابل ١٥–٣٢ ملغ/كغ في الصخر المغربي',
+  'f4.v':'المرتبة الخامسة','f4.k':'عالميًا بين مصدّري الفوسفات قبل عام ٢٠١١',
   'dep.title':'المناجم',
-  'dep.lede':'يتركز أغنى فوسفات سوريا في سلسلة تدمر ببادية محافظة حمص. يُجفَّف الصخر ويُغسل في خنيفيس والشرقية، ثم يُنقل غربًا بالسكك الحديدية إلى طرطوس، ويذهب جزء منه إلى معمل الأسمدة في حمص.',
+  'dep.lede':'يتركز أغنى فوسفات سوريا في سلسلة تدمر ببادية محافظة حمص. يُجفَّف الصخر ويُغسل في خنيفيس والشرقية، ثم يُنقل غربًا بالسكك الحديدية إلى طرطوس، ويُوجَّه جزء منه إلى معمل الأسمدة في حمص.',
   'map.cap':'من المنجم إلى الميناء: ممر السكك الحديدية من مناجم تدمر إلى طرطوس على البحر المتوسط.',
   'map.title':'خريطة ممر الفوسفات من مناجم تدمر إلى مرفأ طرطوس',
   'map.mines':'مناجم خنيفيس والشرقية','map.mines.s':'خنيفيس والشرقية','map.homs':'معمل أسمدة حمص','map.port':'مرفأ طرطوس','map.sea':'إلى أوروبا وشمال أفريقيا وآسيا',
   't.cap':'أين يوجد الفوسفات','t.area':'المنطقة','t.mines':'المناجم',
-  't.r1':'سلسلة تدمر','t.r1m':'خنيفيس، الشرقية، الرخيم','t.r1g':'٢٨–٣٤٪','t.r1n':'سماكة الطبقات ١٠ إلى ١٢ مترًا، وتصل إلى ٢٠ مترًا في الشرقية',
+  't.r1':'سلسلة تدمر','t.r1m':'خنيفيس، الشرقية، الرخيم','t.r1g':'٢٨–٣٤٪','t.r1n':'تتراوح سماكة الطبقات بين ١٠ و١٢ مترًا، وتصل إلى ٢٠ مترًا في الشرقية',
   't.r2':'الحماد','t.r2m':'الجفيفة، الثلاثات، السيجري، الهباري','t.rg':'١٨–٢٢٪',
   't.r3':'الساحل','t.r3m':'عين ليلون، عين التينة، قلعة المهالبة، حمام القراحلة',
   'why.title':'لماذا يطلبه المشترون',
-  'why.lede':'لا بديل للفوسفور في الزراعة. كانت الأسمدة الفوسفاتية وراء قفزة المحاصيل في الثورة الخضراء، والطلب يواصل الارتفاع بينما تشدّد الجهات الرقابية حدود المعادن الثقيلة فيها. لذلك يكتسب الصخر الغني والنظيف معًا قيمة أعلى.',
-  'w1.h':'الجودة','w1.p':'بنسبة P₂O₅ تتراوح بين ٢٨ و٣٤٪، تحتاج طبقات تدمر إلى معالجة أقل قبل تحويلها إلى حمض فوسفوري أو أسمدة، ما يخفض كلفة المعالجة للطن.',
-  'w2.h':'الكادميوم','w2.p':'يحدد الاتحاد الأوروبي سقف الكادميوم في الأسمدة الفوسفاتية بـ٦٠ ملغ لكل كغ من P₂O₅. وسجّلت عينة من خنيفيس ٣ أجزاء بالمليون في الصخر، أي نحو ٩ ملغ لكل كغ من P₂O₅، وهو أقل بكثير من الحد وأدنى من معظم الصخور الرسوبية التي جرى اختبارها.',
-  'w3.h':'المسافة','w3.p':'يقع مرفأ طرطوس على شرق المتوسط، على مسافة إبحار قصيرة من جنوب أوروبا وشمال أفريقيا. وذهبت شحنات ٢٠٢٥ إلى مصر ورومانيا وتركيا وكازاخستان والهند.',
+  'why.lede':'لا بديل للفوسفور في الزراعة. كانت الأسمدة الفوسفاتية وراء القفزة في إنتاجية المحاصيل إبّان الثورة الخضراء، والطلب يواصل الارتفاع بينما تشدّد الجهات الرقابية حدود المعادن الثقيلة فيها. لذلك يكتسب الصخر الغني والنظيف معًا قيمة أعلى.',
+  'w1.h':'الجودة','w1.p':'بفضل نسبة P₂O₅ التي تتراوح بين ٢٨ و٣٤٪، تحتاج خامات تدمر إلى عمليات إغناء أقل قبل تحويلها إلى حمض الفوسفور أو أسمدة، ما يخفّض كلفة المعالجة للطن الواحد.',
+  'w2.h':'الكادميوم','w2.p':'يحدد الاتحاد الأوروبي سقف الكادميوم في الأسمدة الفوسفاتية بـ٦٠ ملغ لكل كغ من P₂O₅. وسجّلت عينة من خنيفيس ٣ أجزاء بالمليون في الصخر، أي نحو ٩ ملغ لكل كغ من P₂O₅، وهو أقل بكثير من هذا الحد وأدنى من معظم الصخور الرسوبية التي جرى اختبارها.',
+  'w3.h':'المسافة','w3.p':'يقع مرفأ طرطوس على الساحل الشرقي للمتوسط، على مسافة إبحار قصيرة من جنوب أوروبا وشمال أفريقيا. واتجهت شحنات عام ٢٠٢٥ إلى مصر ورومانيا وتركيا وكازاخستان والهند.',
   'tl.title':'العودة إلى الأسواق',
-  'tl.lede':'بعد عقد من التعطّل، استؤنف التصدير في ٢٠٢٥، ومنذ ذلك الحين تُفتح الطرق القانونية والفعلية إلى المشترين تباعًا.',
+  'tl.lede':'بعد عقد من التعطّل، استؤنف التصدير في ٢٠٢٥، ومنذ ذلك الحين يُعاد فتح المسارات القانونية واللوجستية أمام المشترين تباعًا.',
   'who.title':'الجهات التي ستتعامل معها',
   'who.lede':'الفوسفات قطاع تديره الدولة. وهذه هي الجهات التي تبيعه وترخّص الاستثمار فيه وتشحنه.',
   'help.title':'كيف نساعد',
-  'help.lede':'نحن جهة تيسير. نساعد المشترين والمستثمرين على إيجاد مصدر التوريد أو المشروع المناسب، والوصول إلى الأشخاص المعنيين، والمتابعة حتى تحميل السفينة.',
-  'cta.title':'تشتري الفوسفات السوري أو تستثمر فيه؟','cta.lede':'أخبرنا بالنوعية والكمية والوجهة، وسنرد عليك مباشرة.','cta.back':'العودة إلى كل القطاعات'
+  'help.lede':'دورنا دور الميسّر: نساعد المشترين والمستثمرين على إيجاد مصدر التوريد أو المشروع المناسب، والوصول إلى الأشخاص المعنيين، والمتابعة حتى تحميل السفينة.',
+  'cta.title':'هل تتطلع إلى شراء الفوسفات السوري أو الاستثمار فيه؟','cta.lede':'أخبرنا بالنوعية والكمية والوجهة، وسنرد عليك مباشرة.','cta.back':'العودة إلى كل القطاعات'
  }
 };
 
 var TIMELINE=[
- {en:['Apr–Jun 2025','Nine shipments, about 180,000 tonnes, leave Tartus for Egypt, Romania, Türkiye, Kazakhstan and India.'],ar:['نيسان–حزيران ٢٠٢٥','تسع شحنات، نحو ١٨٠ ألف طن، تغادر طرطوس إلى مصر ورومانيا وتركيا وكازاخستان والهند.'],s:2},
+ {en:['Apr–Jun 2025','Nine shipments, about 180,000 tonnes, leave Tartus for Egypt, Romania, Türkiye, Kazakhstan and India.'],ar:['نيسان–حزيران ٢٠٢٥','تسع شحنات بنحو ١٨٠ ألف طن تغادر طرطوس إلى مصر ورومانيا وتركيا وكازاخستان والهند.'],s:2},
  {en:['May 2025','The EU lifts its economic sanctions on Syria.'],ar:['أيار ٢٠٢٥','الاتحاد الأوروبي يرفع عقوباته الاقتصادية عن سوريا.'],s:5},
- {en:['Jul 2025','DP World signs a 30-year, $800 million concession to modernise Tartus port, and starts operating it in November.'],ar:['تموز ٢٠٢٥','موانئ دبي العالمية توقّع امتيازًا لمدة ٣٠ عامًا بقيمة ٨٠٠ مليون دولار لتحديث مرفأ طرطوس، وتبدأ تشغيله في تشرين الثاني.'],s:6},
+ {en:['Jul 2025','DP World signs a 30-year, $800 million concession to modernise Tartus port, and starts operating it in November.'],ar:['تموز ٢٠٢٥','موانئ دبي العالمية توقّع عقد امتياز مدته ٣٠ عامًا بقيمة ٨٠٠ مليون دولار لتحديث مرفأ طرطوس، وتبدأ تشغيله في تشرين الثاني.'],s:6},
  {en:['Nov 2025','The Sharqiya washing and drying plant restarts after a decade-long shutdown.'],ar:['تشرين الثاني ٢٠٢٥','معمل الغسيل والتجفيف في الشرقية يعود إلى العمل بعد توقف دام عقدًا.'],s:4},
- {en:['Dec 2025','The US repeals the Caesar Act through its 2026 defence bill, signed on 18 December.'],ar:['كانون الأول ٢٠٢٥','الولايات المتحدة تلغي قانون قيصر عبر قانون الدفاع لعام ٢٠٢٦، الموقّع في ١٨ كانون الأول.'],s:7},
+ {en:['Dec 2025','The US repeals the Caesar Act through its 2026 defence bill, signed on 18 December.'],ar:['كانون الأول ٢٠٢٥','الولايات المتحدة تلغي قانون قيصر عبر قانون تفويض الدفاع الوطني لعام ٢٠٢٦، الذي وُقّع في ١٨ كانون الأول.'],s:7},
  {en:['Jul 2026','Washington moves to remove Syria from its list of state sponsors of terrorism.'],ar:['تموز ٢٠٢٦','واشنطن تبدأ إجراءات شطب سوريا من قائمة الدول الراعية للإرهاب.'],s:8},
- {en:['Aug 2026',"Türkiye's MTA and Syria's geology directorate sign a memorandum covering extraction, processing, acid plants and a rail link to the coast."],ar:['آب ٢٠٢٦','المديرية التركية للأبحاث المعدنية والمؤسسة العامة للجيولوجيا في سوريا توقّعان مذكرة تفاهم تشمل الاستخراج والمعالجة ومعامل الأحماض وخط سكة حديد إلى الساحل.'],s:9},
- {goal:1,en:['Target','The state geology company aims for 6 million tonnes a year by the end of 2026 and 10 million by 2027, up from under 3.5 million in 2025.'],ar:['الهدف','تستهدف المؤسسة العامة للجيولوجيا إنتاج ٦ ملايين طن سنويًا بنهاية ٢٠٢٦ و١٠ ملايين بحلول ٢٠٢٧، مقارنة بأقل من ٣٫٥ ملايين في ٢٠٢٥.'],s:2}
+ {en:['Aug 2026',"Türkiye's MTA and Syria's geology directorate sign a memorandum covering extraction, processing, acid plants and a rail link to the coast."],ar:['آب ٢٠٢٦','المديرية العامة التركية للبحث والتنقيب المعدني والمؤسسة العامة للجيولوجيا في سوريا توقّعان مذكرة تفاهم تشمل الاستخراج والمعالجة ومعامل الأحماض وخط سكة حديد إلى الساحل.'],s:9},
+ {goal:1,en:['Target','The state geology company aims for 6 million tonnes a year by the end of 2026 and 10 million by 2027, up from under 3.5 million in 2025.'],ar:['الهدف','تستهدف المؤسسة العامة للجيولوجيا إنتاج ٦ ملايين طن سنويًا بحلول نهاية عام ٢٠٢٦ و١٠ ملايين بحلول ٢٠٢٧، مقارنة بأقل من ٣٫٥ ملايين في ٢٠٢٥.'],s:2}
 ];
 
 var HELP={
@@ -772,7 +774,7 @@ var WHO={
      ['General Authority for Land and Sea Ports','Runs Tartus and the other ports and border crossings, and handles customs on export shipments.'],
      ['Syrian Investment Authority','Licenses investment in mining, processing and fertiliser plants under Investment Law 114 of 2025.']],
  ar:[['المؤسسة العامة للجيولوجيا والثروة المعدنية','الجهة الحكومية التابعة لوزارة الطاقة التي تدير مناجم الفوسفات وتبيعه للتصدير.'],
-     ['الهيئة العامة للمنافذ البرية والبحرية','تدير مرفأ طرطوس وسائر الموانئ والمعابر، وتتولى الجمارك على شحنات التصدير.'],
+     ['الهيئة العامة للمنافذ البرية والبحرية','تدير مرفأ طرطوس وسائر الموانئ والمعابر، وتتولى الإجراءات الجمركية لشحنات التصدير.'],
      ['هيئة الاستثمار السورية','ترخّص الاستثمار في التعدين والمعالجة ومعامل الأسمدة وفق قانون الاستثمار رقم ١١٤ لعام ٢٠٢٥.']]
 };
 
