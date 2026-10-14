@@ -41,7 +41,7 @@
  "areaServed":{"@type":"Country","name":"Syria"},
  "knowsAbout":["Oil and petroleum","Phosphate and mining","Electrical infrastructure","Real estate development","Logistics and supply chain"],
  "email":"sales@oreviatrade.com",
- "address":{"@type":"PostalAddress","streetAddress":"Office 102, Mohamed Abdulaziz Mohamed Bin Fares Building, Al Murar","addressLocality":"Dubai","addressCountry":"AE"},
+ "address":{"@type":"PostalAddress","streetAddress":"Office 102, Mohamed Abdulaziz Mohamed Bin Fares Building, Al Mararr","addressLocality":"Dubai","addressCountry":"AE"},
  "location":[{"@type":"Place","name":"Syria branch","address":{"@type":"PostalAddress","streetAddress":"Orfali Building, Jaber Bin Hayan Street","addressLocality":"Damascus","addressCountry":"SY"}}],
  "contactPoint":[{"@type":"ContactPoint","contactType":"sales","telephone":"+971559327171","areaServed":"AE","email":"sales@oreviatrade.com"},
   {"@type":"ContactPoint","contactType":"sales","telephone":"+963945650008","areaServed":"SY"}]}
@@ -401,6 +401,43 @@ body.ar .ab-cols p{hyphens:none}
 .fnote{flex-basis:100%;margin:0;font-size:13px;color:var(--text-3)}
 .fnote a{color:var(--text-2)}
 </style>
+<style>
+/* Mobile menu (mobile_menu.py) */
+.mm-btn{display:none;align-items:center;gap:8px;min-height:44px;min-width:44px;padding:0 12px;border-radius:999px;background:none;border:1px solid var(--line-2);color:var(--text);font:600 14px/1 var(--body);cursor:pointer;justify-content:center;transition:border-color .2s ease,background .2s ease}
+body.ar .mm-btn,html[lang=ar] .mm-btn{font-family:var(--arabic)}
+.mm-btn:hover{border-color:var(--accent-text)}
+.mm-ic{width:20px;height:20px;flex-shrink:0}
+.mm-ic path{transition:transform .25s var(--ease),opacity .2s ease;transform-origin:12px 12px}
+.mm-btn[aria-expanded=true] .mm-l1{transform:translateY(5px) rotate(45deg)}
+.mm-btn[aria-expanded=true] .mm-l2{opacity:0}
+.mm-btn[aria-expanded=true] .mm-l3{transform:translateY(-5px) rotate(-45deg)}
+.mm-ar{display:none}html[lang=ar] .mm-ar{display:inline}html[lang=ar] .mm-en{display:none}
+.mm{position:fixed;inset:calc(69px + env(safe-area-inset-top,0px)) 0 0 0;z-index:calc(var(--z-header) - 1);background:var(--ground);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:8px 0 calc(32px + env(safe-area-inset-bottom,0px));opacity:0;transform:translateX(24px);transition:opacity .22s ease,transform .26s var(--ease)}
+html[dir=rtl] .mm{transform:translateX(-24px)}
+.mm.open,html[dir=rtl] .mm.open{opacity:1;transform:none}
+.mm[hidden]{display:none}
+.mm-in{width:min(100% - 40px,560px);margin-inline:auto}
+.mm-g{padding:18px 0 10px;border-bottom:1px solid var(--line)}
+.mm-h{font:600 11.5px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--text-3,var(--text-2));margin:0 0 6px}
+html[lang=ar] .mm-h{font-family:var(--arabic);letter-spacing:0;font-size:13px;text-transform:none}
+.mm a.mm-a,.mm nav a{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:48px;padding:6px 0;color:var(--text);text-decoration:none;font-size:17px;border:0}
+html[lang=ar] .mm a.mm-a,html[lang=ar] .mm nav a{font-family:var(--arabic)}
+.mm nav a::after,.mm a.mm-a::after{content:"\2192";color:var(--text-2);font-size:15px;transition:transform .16s var(--ease)}
+html[dir=rtl] .mm nav a::after,html[dir=rtl] .mm a.mm-a::after{content:"\2190"}
+.mm a[aria-current=page]{color:var(--accent-text)}
+html .mm a.mm-a[aria-current=page]::after{content:"\25CF";font-size:9px;color:var(--accent-text)}
+.mm-ctl{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:22px 0 0}
+.mm-ctl button{display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;border-radius:var(--r);border:1px solid var(--line-2);background:none;color:var(--text);font:500 15px/1.2 var(--body);cursor:pointer}
+.mm-ctl button svg{width:18px;height:18px}
+.mm-lang{font-family:var(--arabic)!important}
+.mm-cta{margin-top:14px;width:100%;justify-content:center;min-height:52px}
+@media (max-width:960px){.mm-btn{display:inline-flex}}
+@media (max-width:520px){.hdr-actions .theme{display:none}.hdr .wrap{gap:12px}.hdr-actions{gap:10px}}
+@media (max-width:420px){.mm-txt{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.mm-btn{padding:0;width:44px}}
+@media (min-width:961px){.mm{display:none!important}}
+@media (prefers-reduced-motion:reduce){.mm,.mm-ic path{transition:none}}
+html.mm-lock,html.mm-lock body{overflow:hidden}
+</style>
 </head>
 <body>
 
@@ -420,9 +457,12 @@ body.ar .ab-cols p{hyphens:none}
       <button class="theme" id="themeBtn" type="button" aria-pressed="false" aria-label="Switch to light mode"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.6A8.4 8.4 0 0 1 9.4 4a8.4 8.4 0 1 0 10.6 10.6z"/></svg></button>
       <button class="lang" id="langBtn" type="button" lang="ar">العربية</button>
       <a class="btn btn-brass" href="#contact" data-i="cta">Discuss a project</a>
+      <button class="mm-btn" id="mmBtn" type="button" aria-expanded="false" aria-controls="mmPanel"><svg class="mm-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path class="mm-l1" d="M4 7h16"/><path class="mm-l2" d="M4 12h16"/><path class="mm-l3" d="M4 17h16"/></svg><span class="mm-txt"><span class="mm-en">Menu</span><span class="mm-ar" lang="ar">القائمة</span></span></button>
     </div>
   </div>
 </header>
+<div class="mm" id="mmPanel" hidden><div class="mm-in"><div class="mm-g"><p class="mm-h"><span class="mm-en">On this page</span><span class="mm-ar" lang="ar">في هذه الصفحة</span></p><nav aria-label="Menu"><a href="#where" data-i="nav.where">Where we work</a><a href="#approach" data-i="nav.approach">How we work</a><a href="#news" data-i="nav.news">Economy watch</a><a href="#about" data-i="nav.about">About</a><a href="#contact" data-i="nav.contact">Contact</a></nav></div><div class="mm-g"><p class="mm-h"><span class="mm-en">Sectors</span><span class="mm-ar" lang="ar">القطاعات</span></p><a class="mm-a" href="oil.html"><span class="mm-en">Oil & Petroleum</span><span class="mm-ar" lang="ar">النفط والمشتقات النفطية</span></a><a class="mm-a" href="phosphate.html"><span class="mm-en">Phosphate & Mining</span><span class="mm-ar" lang="ar">الفوسفات والتعدين</span></a><a class="mm-a" href="power.html"><span class="mm-en">Electrical Infrastructure</span><span class="mm-ar" lang="ar">البنية التحتية الكهربائية</span></a><a class="mm-a" href="estate.html"><span class="mm-en">Real Estate Development</span><span class="mm-ar" lang="ar">التطوير العقاري</span></a><a class="mm-a" href="logistics.html"><span class="mm-en">Logistics & Supply Chain</span><span class="mm-ar" lang="ar">الخدمات اللوجستية وسلاسل الإمداد</span></a></div><div class="mm-ctl"><button class="mm-lang" type="button" lang="ar">العربية</button><button class="mm-theme" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2"/></svg><span class="mm-tl">Light mode</span></button></div><a class="btn btn-brass mm-cta" href="#contact" data-i="cta">Discuss a project</a></div></div>
+
 
 <main id="main">
   <section class="hero" id="top" aria-labelledby="h1">
@@ -543,7 +583,7 @@ body.ar .ab-cols p{hyphens:none}
             <div><dt><span class="l-en">Legal name</span><span class="l-ar" lang="ar">الاسم القانوني</span></dt><dd><span class="l-en">Orevia Commercial Brokers L.L.C</span><span class="l-ar" lang="ar">اوريفيا للوساطة التجارية ذ.م.م</span></dd></div>
             <div><dt><span class="l-en">Licence</span><span class="l-ar" lang="ar">الرخصة</span></dt><dd><span class="l-en">Commercial licence no. 952681, Dubai Department of Economy and Tourism</span><span class="l-ar" lang="ar">رخصة تجارية رقم ٩٥٢٦٨١، صادرة عن دائرة الاقتصاد والسياحة في دبي</span></dd></div>
             <div><dt><span class="l-en">Chamber</span><span class="l-ar" lang="ar">الغرفة التجارية</span></dt><dd><span class="l-en">Member of Dubai Chamber of Commerce and Industry, no. 641680</span><span class="l-ar" lang="ar">عضو في غرفة تجارة وصناعة دبي، رقم العضوية ٦٤١٦٨٠</span></dd></div>
-            <div><dt><span class="l-en">Dubai office</span><span class="l-ar" lang="ar">مكتب دبي</span></dt><dd><span class="l-en">Office 102, Mohamed Abdulaziz Mohamed Bin Fares Building, Al Murar, Dubai, UAE</span><span class="l-ar" lang="ar">مكتب رقم ١٠٢، ملك محمد عبدالعزيز محمد بن فارس، المرر، دبي، الإمارات العربية المتحدة</span></dd></div>
+            <div><dt><span class="l-en">Dubai office</span><span class="l-ar" lang="ar">مكتب دبي</span></dt><dd><span class="l-en">Office 102, Mohamed Abdulaziz Mohamed Bin Fares Building, Al Mararr, Dubai, UAE</span><span class="l-ar" lang="ar">مكتب رقم ١٠٢، ملك محمد عبدالعزيز محمد بن فارس، المرار، دبي، الإمارات العربية المتحدة</span></dd></div>
             <div><dt><span class="l-en">Syria branch</span><span class="l-ar" lang="ar">فرع سوريا</span></dt><dd><span class="l-en">Orfali Building, Jaber Bin Hayan Street, Damascus, Syria</span><span class="l-ar" lang="ar">بناء العرفلي، شارع جابر بن حيان، دمشق، سوريا</span></dd></div>
           </dl>
         </div>
@@ -608,8 +648,8 @@ var SITE = {
   whatsapp: "",              // international, digits only; leave "" to hide WhatsApp everywhere
   email: "sales@oreviatrade.com",
   offices: [                // shown in this order under the phones and email
-    { key: "k.adxb", en: "Office 102, Mohamed Abdulaziz Mohamed Bin Fares Building, Al Murar, Dubai, UAE",
-                     ar: "مكتب رقم ١٠٢، ملك محمد عبدالعزيز محمد بن فارس، المرر، دبي، الإمارات العربية المتحدة" },
+    { key: "k.adxb", en: "Office 102, Mohamed Abdulaziz Mohamed Bin Fares Building, Al Mararr, Dubai, UAE",
+                     ar: "مكتب رقم ١٠٢، ملك محمد عبدالعزيز محمد بن فارس، المرار، دبي، الإمارات العربية المتحدة" },
     { key: "k.asyr", en: "Orfali Building, Jaber Bin Hayan Street, Damascus, Syria",
                      ar: "بناء العرفلي، شارع جابر بن حيان، دمشق، سوريا" }
   ],
@@ -1162,5 +1202,38 @@ setLang(start);
 })();
 </script>
 
+<script>
+/* Mobile menu (mobile_menu.py) */
+(function(){
+ var b=document.getElementById('mmBtn'),p=document.getElementById('mmPanel'),d=document.documentElement;if(!b||!p)return;
+ var main=document.getElementById('main'),ftr=document.querySelector('footer'),last=null;
+ function ar(){return d.lang==='ar'}
+ function label(){var o=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-label',o?(ar()?'إغلاق القائمة':'Close menu'):(ar()?'فتح القائمة':'Open menu'))}
+ function focusables(){return [b].concat([].slice.call(p.querySelectorAll('a[href],button:not([disabled])')))}
+ function open(){p.hidden=false;void p.offsetWidth;p.classList.add('open');b.setAttribute('aria-expanded','true');d.classList.add('mm-lock');
+  [main,ftr].forEach(function(e){if(e)e.setAttribute('inert','')});label();syncCtl();
+  var f=p.querySelector('a,button');if(f)f.focus({preventScroll:true})}
+ function close(back){if(b.getAttribute('aria-expanded')!=='true')return;p.classList.remove('open');b.setAttribute('aria-expanded','false');d.classList.remove('mm-lock');
+  [main,ftr].forEach(function(e){if(e)e.removeAttribute('inert')});label();
+  var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;setTimeout(function(){if(b.getAttribute('aria-expanded')==='false')p.hidden=true},rm?0:260);
+  if(back!==false)b.focus({preventScroll:true})}
+ b.addEventListener('click',function(){b.getAttribute('aria-expanded')==='true'?close():open()});
+ document.addEventListener('keydown',function(e){if(b.getAttribute('aria-expanded')!=='true')return;
+  if(e.key==='Escape'){e.preventDefault();close();return}
+  if(e.key==='Tab'){var f=focusables(),i=f.indexOf(document.activeElement);
+   if(e.shiftKey&&(i<=0)){e.preventDefault();f[f.length-1].focus()}else if(!e.shiftKey&&i===f.length-1){e.preventDefault();f[0].focus()}}});
+ p.addEventListener('click',function(e){var a=e.target.closest('a');if(a)close(false)});
+ matchMedia('(min-width: 961px)').addEventListener('change',function(m){if(m.matches)close(false)});
+ /* Language and theme buttons in the panel drive the header's own buttons */
+ var lb=document.getElementById('langBtn'),tb=document.getElementById('themeBtn'),ml=p.querySelector('.mm-lang'),mt=p.querySelector('.mm-theme');
+ function syncCtl(){if(ml&&lb){ml.textContent=lb.textContent;ml.lang=lb.lang}
+  if(mt){var l=d.hasAttribute('data-light');mt.setAttribute('aria-pressed',l?'true':'false');
+   mt.querySelector('.mm-tl').textContent=l?(ar()?'الوضع الداكن':'Dark mode'):(ar()?'الوضع الفاتح':'Light mode')}}
+ if(ml&&lb)ml.addEventListener('click',function(){lb.click();syncCtl();label()});
+ if(mt&&tb)mt.addEventListener('click',function(){tb.click();syncCtl()});
+ if(window.MutationObserver)new MutationObserver(function(){syncCtl();label()}).observe(d,{attributes:true,attributeFilter:['lang','data-light']});
+ label();syncCtl();
+})();
+</script>
 </body>
 </html>
