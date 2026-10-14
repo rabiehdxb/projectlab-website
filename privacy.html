@@ -6,6 +6,23 @@
 <title>Privacy Policy | Orevia</title>
 <meta name="description" content="How Orevia Commercial Brokers L.L.C collects, uses and protects personal data sent through www.oreviatrade.com, including our cookie notice.">
 <meta name="theme-color" content="#0A1C1E">
+<script>
+/* Theme: saved choice, else the device setting. Runs before paint to avoid a flash. */
+(function(){var d=document.documentElement,K='ple-theme',saved=null;
+ try{saved=localStorage.getItem(K)}catch(e){}
+ var mq=window.matchMedia?matchMedia('(prefers-color-scheme: light)'):null;
+ function apply(light){if(light)d.setAttribute('data-light','');else d.removeAttribute('data-light')}
+ apply(saved?saved==='light':!!(mq&&mq.matches));
+ if(mq&&!saved&&mq.addEventListener)mq.addEventListener('change',function(e){try{if(localStorage.getItem(K))return}catch(x){}apply(e.matches);sync()});
+ function sync(){var b=document.getElementById('themeBtn');var l=d.hasAttribute('data-light'),ar=d.lang==='ar';
+  var m=document.querySelector('meta[name=theme-color]');if(m)m.setAttribute('content',l?'#F5F2EC':'#0A1C1E');
+  if(!b)return;b.setAttribute('aria-pressed',l?'true':'false');
+  var lab=l?(ar?'التبديل إلى الوضع الداكن':'Switch to dark mode'):(ar?'التبديل إلى الوضع الفاتح':'Switch to light mode');b.setAttribute('aria-label',lab);b.title=lab}
+ document.addEventListener('DOMContentLoaded',function(){var b=document.getElementById('themeBtn');sync();
+  if(b)b.addEventListener('click',function(){apply(!d.hasAttribute('data-light'));try{localStorage.setItem(K,d.hasAttribute('data-light')?'light':'dark')}catch(e){}sync()});
+  if(window.MutationObserver)new MutationObserver(sync).observe(d,{attributes:true,attributeFilter:['lang']})});
+})();
+</script>
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -22,7 +39,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Kufi+Arabic:wght@700;800;900&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap">
 <style>
-/* Single committed dark world (theme lock). */
+/* Dark is the default world; :root[data-light] below defines the light theme. */
 :root{
   color-scheme:dark;
   /* Palette: Transformative Teal & Copper (WGSN x Coloro Colour of the Year 2026) */
@@ -44,6 +61,26 @@
   --r:3px; --max:1240px;
   --z-grain:60; --z-header:50; --z-skip:70;
 }
+/* Light theme: same layout, warm paper ground; photo heroes keep their cinematic dark grade (hero tokens unchanged). */
+:root[data-light]{
+  color-scheme:light;
+  --ground:#F5F2EC; --ground-2:#EDE8E0; --raise:#FFFFFF; --raise-2:#F8F5F0;
+  --line:rgba(14,36,38,.13); --line-2:rgba(14,36,38,.24);
+  --text:#0E2426; --text-2:#3A514E; --text-3:#566A66;
+  --accent:#CF8650; --accent-hi:#BE743D; --accent-ink:#0A1C1E; --accent-text:#985120; --accent-line:#9851208C;
+  --hex:#DCE5E2; --hex-card:#CEDAD6; --hex-text:#28433F; --hex-lit:#D08A55; --hex-lit-text:#0A1C1E; --route:#8A4A1E;
+  --header:rgba(245,242,236,.88); --scroll:#C2CDCA; --shadow:rgba(14,36,38,.16); --brand-accent:#9A7428;
+  --ok:#1F8A50; --err:#B4402A;
+}
+:root[data-light] body::after{opacity:.025}
+/* Theme toggle */
+.theme{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:50%;background:none;border:1px solid var(--line-2);color:var(--text);cursor:pointer;transition:transform .16s var(--ease),border-color .2s ease,background .2s ease}
+.theme:hover{border-color:var(--accent-text)}
+.theme:active{transform:scale(.94)}
+.theme svg{width:18px;height:18px}
+.theme .i-moon,:root[data-light] .theme .i-sun{display:none}
+:root[data-light] .theme .i-moon{display:block}
+@media (pointer:coarse),(max-width:760px){.theme{width:44px;height:44px}}
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 html{scroll-behavior:smooth;scrollbar-color:var(--scroll) var(--ground)}
@@ -389,6 +426,7 @@ body.ar .lg-doc h2{font-size:clamp(19px,1.8vw,23px);text-transform:none}
       <a href="./#contact" data-i="nav.contact">Contact</a>
     </nav>
     <div class="hdr-actions">
+      <button class="theme" id="themeBtn" type="button" aria-pressed="false" aria-label="Switch to light mode"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.6A8.4 8.4 0 0 1 9.4 4a8.4 8.4 0 1 0 10.6 10.6z"/></svg></button>
       <button class="lang" id="langBtn" type="button" lang="ar">العربية</button>
       <a class="btn btn-brass" href="./#contact" data-i="cta">Discuss a project</a>
     </div>
