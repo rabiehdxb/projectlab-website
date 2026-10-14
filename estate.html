@@ -320,6 +320,36 @@ body.ar .motion-toggle{font-family:var(--arabic)}
 @media (prefers-reduced-motion: reduce){.motion-toggle{display:none}}
 /* Touch targets */
 @media (pointer:coarse),(max-width:760px){.lang{min-height:44px!important}.chip{min-height:44px}.lang{min-height:44px;min-width:44px}.fnav a{display:inline-block;padding-block:12px}}
+/* About */
+body:not(.ar) .l-ar,body.ar .l-en{display:none}
+.about{border-bottom:1px solid var(--line)}
+.ab-top{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(28px,5vw,80px);align-items:end}
+.ab-top .lede{margin:0;max-width:52ch}
+.about h2{font-size:clamp(38px,5vw,64px);text-transform:uppercase;max-width:14ch}
+body.ar .about h2{font-size:clamp(30px,3.6vw,46px);max-width:none}
+.ab-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:clamp(40px,5vw,64px) 0 0;border-block:1px solid var(--line-2)}
+.ab-facts>div{padding:22px 20px 24px;border-inline-start:1px solid var(--line)}
+.ab-facts>div:first-child{border-inline-start:0;padding-inline-start:0}
+.ab-facts dt{font:500 clamp(26px,3vw,40px)/1.05 var(--mono);color:var(--accent-text);letter-spacing:-.01em}
+body.ar .ab-facts dt{font-family:var(--ar-head);font-weight:800;letter-spacing:0}
+.ab-facts dd{margin:10px 0 0;color:var(--text-2);font-size:14.5px;line-height:1.45}
+.ab-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(28px,4vw,56px);margin-top:clamp(48px,6vw,80px)}
+.ab-cols h3,.ab-low h3{font-size:clamp(22px,2.2vw,28px);text-transform:uppercase;margin-bottom:14px}
+body.ar .ab-cols h3,body.ar .ab-low h3{font-size:clamp(19px,1.8vw,23px)}
+.ab-cols p{color:var(--text-2);margin:0 0 12px}
+.ab-low{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);margin-top:clamp(52px,6vw,88px)}
+.ab-dir{margin:0;border-bottom:1px solid var(--line)}
+.ab-dir>div{display:grid;grid-template-columns:minmax(120px,.42fr) 1fr;gap:6px 22px;padding:15px 0;border-top:1px solid var(--line)}
+.ab-dir dt{color:var(--text);font-weight:600}
+.ab-dir dd{margin:0;color:var(--text-2)}
+.ab-dir dd [dir=ltr]{unicode-bidi:isolate}
+@media (max-width:900px){.ab-top,.ab-low{grid-template-columns:1fr}.ab-cols{grid-template-columns:1fr}.ab-facts{grid-template-columns:1fr 1fr}.ab-facts>div:nth-child(3){border-inline-start:0;padding-inline-start:0}.ab-facts>div:nth-child(n+3){border-top:1px solid var(--line)}}
+@media (max-width:520px){.ab-dir>div{grid-template-columns:1fr}.ab-facts dt{font-size:24px}body.ar .ab-facts dt{font-size:21px}}
+/* Footer legal links + form note */
+.flegal{display:flex;flex-wrap:wrap;gap:6px 20px}
+.flegal a{color:var(--text-3);text-decoration:none}.flegal a:hover{color:var(--text)}
+.fnote{flex-basis:100%;margin:0;font-size:13px;color:var(--text-3)}
+.fnote a{color:var(--text-2)}
 </style>
 <style>
 /* ---------- Sector pages (phosphate.html, oil.html): extends the shared site styles ---------- */
@@ -629,13 +659,14 @@ body:not(.ar) .l-ar,body.ar .l-en{display:none}
       <nav class="fnav" aria-label="Footer">
         <a href="./#where" data-i="nav.where">Where we work</a>
         <a href="./#approach" data-i="nav.approach">How we work</a>
+        <a href="./#about" data-i="nav.about">About</a>
         <a href="./#news" data-i="nav.news">Economy watch</a>
         <a href="./#contact" data-i="nav.contact">Contact</a>
       </nav>
     </div>
     <div class="fbot">
       <span>© <span id="yr">2026</span> Orevia Commercial Brokers L.L.C</span>
-      <span lang="ar">أوريفيا</span>
+      <nav class="flegal" aria-label="Legal"><a href="privacy.html" data-i="lg.privacy">Privacy Policy</a><a href="terms.html" data-i="lg.terms">Terms of Use</a><a href="disclaimer.html" data-i="lg.disc">Disclaimer</a></nav>
     </div>
   </div>
 </footer>
@@ -659,7 +690,8 @@ var T={
  en:{
   'skip':'Skip to content','title':'Syrian real estate development | Orevia',
   'nav.projects':'Projects','nav.opps':'Opportunities','nav.buy':'Before you buy','nav.sectors':'All sectors',
-  'nav.where':'Where we work','nav.approach':'How we work','nav.news':'Economy watch','nav.contact':'Contact',
+  'nav.where':'Where we work','nav.approach':'How we work','nav.about':'About','nav.news':'Economy watch','nav.contact':'Contact',
+  'lg.privacy':'Privacy Policy','lg.terms':'Terms of Use','lg.disc':'Disclaimer',
   'cta':'Discuss a property project','back':'Where we work','hero.see':'See the new projects',
   'hero.title':'Syrian <em>real estate.</em>',
   'hero.sub':"Syria's cities are rebuilding. We help investors find land, check titles and reach the right authorities.",
@@ -693,7 +725,8 @@ var T={
  ar:{
   'skip':'انتقل إلى المحتوى','title':'التطوير العقاري في سوريا | أوريفيا',
   'nav.projects':'المشاريع','nav.opps':'الفرص','nav.buy':'قبل الشراء','nav.sectors':'كل القطاعات',
-  'nav.where':'أين نعمل','nav.approach':'آلية عملنا','nav.news':'مرصد الاقتصاد','nav.contact':'تواصل معنا',
+  'nav.where':'أين نعمل','nav.approach':'آلية عملنا','nav.about':'من نحن','nav.news':'مرصد الاقتصاد','nav.contact':'تواصل معنا',
+  'lg.privacy':'سياسة الخصوصية','lg.terms':'شروط الاستخدام','lg.disc':'إخلاء المسؤولية',
   'cta':'ناقش مشروعًا عقاريًا','back':'أين نعمل','hero.see':'اكتشف المشاريع الجديدة',
   'hero.title':'العقار <em>في سوريا.</em>',
   'hero.sub':'المدن السورية تعيد البناء. نساعد المستثمرين على إيجاد الأرض والتحقق من سندات الملكية والوصول إلى الجهات المعنية.',

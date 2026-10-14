@@ -330,6 +330,36 @@ body.ar .motion-toggle{font-family:var(--arabic)}
 @media (prefers-reduced-motion: reduce){.motion-toggle{display:none}}
 /* Touch targets */
 @media (pointer:coarse),(max-width:760px){.lang{min-height:44px!important}.chip{min-height:44px}.lang{min-height:44px;min-width:44px}.fnav a{display:inline-block;padding-block:12px}}
+/* About */
+body:not(.ar) .l-ar,body.ar .l-en{display:none}
+.about{border-bottom:1px solid var(--line)}
+.ab-top{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(28px,5vw,80px);align-items:end}
+.ab-top .lede{margin:0;max-width:52ch}
+.about h2{font-size:clamp(38px,5vw,64px);text-transform:uppercase;max-width:14ch}
+body.ar .about h2{font-size:clamp(30px,3.6vw,46px);max-width:none}
+.ab-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:clamp(40px,5vw,64px) 0 0;border-block:1px solid var(--line-2)}
+.ab-facts>div{padding:22px 20px 24px;border-inline-start:1px solid var(--line)}
+.ab-facts>div:first-child{border-inline-start:0;padding-inline-start:0}
+.ab-facts dt{font:500 clamp(26px,3vw,40px)/1.05 var(--mono);color:var(--accent-text);letter-spacing:-.01em}
+body.ar .ab-facts dt{font-family:var(--ar-head);font-weight:800;letter-spacing:0}
+.ab-facts dd{margin:10px 0 0;color:var(--text-2);font-size:14.5px;line-height:1.45}
+.ab-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(28px,4vw,56px);margin-top:clamp(48px,6vw,80px)}
+.ab-cols h3,.ab-low h3{font-size:clamp(22px,2.2vw,28px);text-transform:uppercase;margin-bottom:14px}
+body.ar .ab-cols h3,body.ar .ab-low h3{font-size:clamp(19px,1.8vw,23px)}
+.ab-cols p{color:var(--text-2);margin:0 0 12px}
+.ab-low{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);margin-top:clamp(52px,6vw,88px)}
+.ab-dir{margin:0;border-bottom:1px solid var(--line)}
+.ab-dir>div{display:grid;grid-template-columns:minmax(120px,.42fr) 1fr;gap:6px 22px;padding:15px 0;border-top:1px solid var(--line)}
+.ab-dir dt{color:var(--text);font-weight:600}
+.ab-dir dd{margin:0;color:var(--text-2)}
+.ab-dir dd [dir=ltr]{unicode-bidi:isolate}
+@media (max-width:900px){.ab-top,.ab-low{grid-template-columns:1fr}.ab-cols{grid-template-columns:1fr}.ab-facts{grid-template-columns:1fr 1fr}.ab-facts>div:nth-child(3){border-inline-start:0;padding-inline-start:0}.ab-facts>div:nth-child(n+3){border-top:1px solid var(--line)}}
+@media (max-width:520px){.ab-dir>div{grid-template-columns:1fr}.ab-facts dt{font-size:24px}body.ar .ab-facts dt{font-size:21px}}
+/* Footer legal links + form note */
+.flegal{display:flex;flex-wrap:wrap;gap:6px 20px}
+.flegal a{color:var(--text-3);text-decoration:none}.flegal a:hover{color:var(--text)}
+.fnote{flex-basis:100%;margin:0;font-size:13px;color:var(--text-3)}
+.fnote a{color:var(--text-2)}
 </style>
 </head>
 <body>
@@ -342,6 +372,7 @@ body.ar .motion-toggle{font-family:var(--arabic)}
     <nav class="main" aria-label="Main">
       <a href="#where" data-i="nav.where">Where we work</a>
       <a href="#approach" data-i="nav.approach">How we work</a>
+      <a href="#about" data-i="nav.about">About</a>
       <a href="#news" data-i="nav.news">Economy watch</a>
       <a href="#contact" data-i="nav.contact">Contact</a>
     </nav>
@@ -403,6 +434,61 @@ body.ar .motion-toggle{font-family:var(--arabic)}
     </div>
   </section>
 
+  <section id="about" class="about" aria-labelledby="ab-h">
+    <div class="wrap">
+      <div class="ab-top">
+        <h2 id="ab-h"><span class="l-en">Built for Syria's next chapter.</span><span class="l-ar" lang="ar">شريككم في مرحلة سوريا الجديدة.</span></h2>
+        <p class="lede"><span class="l-en">Orevia Commercial Brokers L.L.C is a commercial brokerage licensed in Dubai. We connect investors and traders with opportunities in Syria across oil and energy, phosphate and mining, power, real estate and logistics.</span><span class="l-ar" lang="ar">أوريفيا للوساطة التجارية شركة وساطة تجارية مرخّصة في دبي، تربط المستثمرين والتجّار بالفرص المتاحة في سوريا في قطاعات النفط والطاقة، والفوسفات والتعدين، والكهرباء، والتطوير العقاري، والخدمات اللوجستية.</span></p>
+      </div>
+      <dl class="ab-facts">
+        <div><dt><span class="l-en">2021</span><span class="l-ar" lang="ar">٢٠٢١</span></dt><dd><span class="l-en">Licensed in Dubai</span><span class="l-ar" lang="ar">مرخّصون في دبي</span></dd></div>
+        <div><dt><span class="l-en">Dec 2024</span><span class="l-ar" lang="ar">ديسمبر ٢٠٢٤</span></dt><dd><span class="l-en">On the ground in Syria</span><span class="l-ar" lang="ar">حضورٌ ميداني في سوريا</span></dd></div>
+        <div><dt><span class="l-en">5</span><span class="l-ar" lang="ar">٥</span></dt><dd><span class="l-en">Sectors we cover</span><span class="l-ar" lang="ar">قطاعات رئيسية نغطيها</span></dd></div>
+        <div><dt><span class="l-en">3</span><span class="l-ar" lang="ar">٣</span></dt><dd><span class="l-en">Countries in our legal and partner network</span><span class="l-ar" lang="ar">دول تمتد إليها شبكة مستشارينا وشركائنا</span></dd></div>
+      </dl>
+      <div class="ab-cols">
+        <div>
+          <h3><span class="l-en">Our story</span><span class="l-ar" lang="ar">قصتنا</span></h3>
+          <p class="l-en">Orevia was founded by Syrians who wanted to put their experience to work for their country as it entered a new era. Syria's resources and markets were reopening, but serious investors had no clear way in: who to speak to, which approvals they need, and whom to trust. Orevia exists to close that gap and to bring the country's resources to the investors who can develop them.</p>
+          <p class="l-ar" lang="ar">أسّس أوريفيا سوريون أرادوا أن يسخّروا خبراتهم لخدمة وطنهم وهو يدخل مرحلةً جديدة. فمع عودة موارد سوريا وأسواقها إلى الانفتاح، وجد المستثمرون الجادّون أنفسهم أمام أسئلة بلا إجابات واضحة: مع من يتواصلون؟ وما الموافقات التي يحتاجونها؟ وبمن يمكنهم أن يثقوا؟ ومن هنا جاءت أوريفيا لتسدّ هذه الفجوة، وتفتح الطريق أمام المستثمرين القادرين على تنمية موارد البلاد.</p>
+          <p class="l-en">We have been licensed and operating in Dubai since 2021, and active on the ground in Syria since December 2024.</p>
+          <p class="l-ar" lang="ar">نعمل في دبي بترخيص رسمي منذ عام ٢٠٢١، ونمارس نشاطنا ميدانيًا في سوريا منذ ديسمبر ٢٠٢٤.</p>
+        </div>
+        <div>
+          <h3><span class="l-en">What we do</span><span class="l-ar" lang="ar">ما نقدّمه</span></h3>
+          <p class="l-en">We are the link between investors and the Syrian market. We identify opportunities, introduce clients to the right ministries, public companies and private partners, arrange meetings and site visits, and stay alongside them through approvals and execution. Our Dubai office gives international clients a regulated, familiar base; our Damascus branch gives them a team on the ground.</p>
+          <p class="l-ar" lang="ar">نحن حلقة الوصل بين المستثمرين والسوق السورية؛ نرصد الفرص، ونعرّف عملاءنا بالوزارات والمؤسسات العامة والشركاء المناسبين من القطاع الخاص، وننظّم الاجتماعات والزيارات الميدانية، ونرافقهم في مراحل الحصول على الموافقات وصولًا إلى التنفيذ. ويوفّر مكتبنا في دبي للعملاء الدوليين قاعدةً موثوقة تعمل وفق أطر تنظيمية واضحة، فيما يضع فرعنا في دمشق بين أيديهم فريقًا حاضرًا على الأرض.</p>
+        </div>
+        <div>
+          <h3><span class="l-en">Our network</span><span class="l-ar" lang="ar">شبكتنا</span></h3>
+          <p class="l-en">We work with legal advisers and partners in the United Arab Emirates, Syria and Saudi Arabia, so our clients have the right support on both sides of a deal.</p>
+          <p class="l-ar" lang="ar">نتعاون مع مستشارين قانونيين وشركاء في الإمارات العربية المتحدة وسوريا والمملكة العربية السعودية، ليحظى عملاؤنا بالدعم اللازم على طرفَي كل صفقة.</p>
+        </div>
+      </div>
+      <div class="ab-low">
+        <div>
+          <h3><span class="l-en">Our principles</span><span class="l-ar" lang="ar">مبادئنا</span></h3>
+          <dl class="ab-dir">
+            <div><dt><span class="l-en">Discretion</span><span class="l-ar" lang="ar">السرّية</span></dt><dd><span class="l-en">Every enquiry is handled in confidence.</span><span class="l-ar" lang="ar">نتعامل مع كل استفسار بسرّية تامة.</span></dd></div>
+            <div><dt><span class="l-en">Direct access</span><span class="l-ar" lang="ar">التواصل المباشر</span></dt><dd><span class="l-en">You deal with the people who run the company.</span><span class="l-ar" lang="ar">تتعامل مباشرةً مع القائمين على إدارة الشركة.</span></dd></div>
+            <div><dt><span class="l-en">On the ground</span><span class="l-ar" lang="ar">الحضور الميداني</span></dt><dd><span class="l-en">A team in Damascus, not just a phone number.</span><span class="l-ar" lang="ar">فريق فعلي في دمشق، لا مجرد رقم هاتف.</span></dd></div>
+            <div><dt><span class="l-en">Long-term</span><span class="l-ar" lang="ar">الالتزام طويل الأمد</span></dt><dd><span class="l-en">We stay with a project after the first meeting.</span><span class="l-ar" lang="ar">نواصل مرافقة المشروع إلى ما بعد الاجتماع الأول.</span></dd></div>
+          </dl>
+        </div>
+        <div>
+          <h3><span class="l-en">Company details</span><span class="l-ar" lang="ar">بيانات الشركة</span></h3>
+          <dl class="ab-dir">
+            <div><dt><span class="l-en">Legal name</span><span class="l-ar" lang="ar">الاسم القانوني</span></dt><dd><span class="l-en">Orevia Commercial Brokers L.L.C</span><span class="l-ar" lang="ar">اوريفيا للوساطة التجارية ذ.م.م</span></dd></div>
+            <div><dt><span class="l-en">Licence</span><span class="l-ar" lang="ar">الرخصة</span></dt><dd><span class="l-en">Commercial licence no. 952681, Dubai Department of Economy and Tourism</span><span class="l-ar" lang="ar">رخصة تجارية رقم ٩٥٢٦٨١، صادرة عن دائرة الاقتصاد والسياحة في دبي</span></dd></div>
+            <div><dt><span class="l-en">Chamber</span><span class="l-ar" lang="ar">الغرفة التجارية</span></dt><dd><span class="l-en">Member of Dubai Chamber of Commerce and Industry, no. 641680</span><span class="l-ar" lang="ar">عضو في غرفة تجارة وصناعة دبي، رقم العضوية ٦٤١٦٨٠</span></dd></div>
+            <div><dt><span class="l-en">Dubai office</span><span class="l-ar" lang="ar">مكتب دبي</span></dt><dd><span class="l-en">Office 102, Mohamed Abdulaziz Mohamed Bin Fares Building, Al Murar, Dubai, UAE</span><span class="l-ar" lang="ar">مكتب رقم ١٠٢، ملك محمد عبدالعزيز محمد بن فارس، المرر، دبي، الإمارات العربية المتحدة</span></dd></div>
+            <div><dt><span class="l-en">Syria branch</span><span class="l-ar" lang="ar">فرع سوريا</span></dt><dd><span class="l-en">Orfali Building, Jaber Bin Hayan Street, Damascus, Syria</span><span class="l-ar" lang="ar">بناء العرفلي، شارع جابر بن حيان، دمشق، سوريا</span></dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="news" aria-labelledby="news-h">
     <div class="wrap">
       <div class="news-top">
@@ -443,6 +529,7 @@ body.ar .motion-toggle{font-family:var(--arabic)}
         <div class="full" style="display:flex;flex-wrap:wrap;gap:14px 18px;align-items:center">
           <button class="btn btn-brass" type="submit" id="fsend" data-i="f.send">Send enquiry</button>
           <p class="fmsg" id="fmsg" role="status"></p>
+          <p class="fnote" data-i-html="f.note">By sending, you agree to our <a href="privacy.html">Privacy Policy</a>.</p>
         </div>
       </form>
     </div>
@@ -456,13 +543,14 @@ body.ar .motion-toggle{font-family:var(--arabic)}
       <nav class="fnav" aria-label="Footer">
         <a href="#where" data-i="nav.where">Where we work</a>
         <a href="#approach" data-i="nav.approach">How we work</a>
+        <a href="#about" data-i="nav.about">About</a>
         <a href="#news" data-i="nav.news">Economy watch</a>
         <a href="#contact" data-i="nav.contact">Contact</a>
       </nav>
     </div>
     <div class="fbot">
       <span>© <span id="yr">2026</span> Orevia Commercial Brokers L.L.C</span>
-      <span lang="ar">أوريفيا</span>
+      <nav class="flegal" aria-label="Legal"><a href="privacy.html" data-i="lg.privacy">Privacy Policy</a><a href="terms.html" data-i="lg.terms">Terms of Use</a><a href="disclaimer.html" data-i="lg.disc">Disclaimer</a></nav>
     </div>
   </div>
 </footer>
@@ -492,7 +580,8 @@ var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)')
 var T={
  en:{
   'skip':'Skip to content','motion.pause':'Pause motion','motion.play':'Play motion',
-  'nav.where':'Where we work','nav.approach':'How we work','nav.news':'Economy watch','nav.contact':'Contact',
+  'nav.where':'Where we work','nav.approach':'How we work','nav.about':'About','nav.news':'Economy watch','nav.contact':'Contact',
+  'lg.privacy':'Privacy Policy','lg.terms':'Terms of Use','lg.disc':'Disclaimer','f.note':'By sending, you agree to our <a href="privacy.html">Privacy Policy</a>.',
   'cta':'Discuss a project','hero.see':'See where we work',
   'hero.title':'Trade across <em>all of Syria.</em>',
   'hero.sub':'We facilitate business and trade in all 14 governorates: oil, phosphate, power, real estate and logistics.',
@@ -520,7 +609,8 @@ var T={
  },
  ar:{
   'skip':'انتقل إلى المحتوى','motion.pause':'إيقاف الحركة','motion.play':'تشغيل الحركة',
-  'nav.where':'أين نعمل','nav.approach':'آلية عملنا','nav.news':'مرصد الاقتصاد','nav.contact':'تواصل معنا',
+  'nav.where':'أين نعمل','nav.approach':'آلية عملنا','nav.about':'من نحن','nav.news':'مرصد الاقتصاد','nav.contact':'تواصل معنا',
+  'lg.privacy':'سياسة الخصوصية','lg.terms':'شروط الاستخدام','lg.disc':'إخلاء المسؤولية','f.note':'بإرسالك الطلب، فإنك توافق على <a href="privacy.html">سياسة الخصوصية</a>.',
   'cta':'ناقش مشروعك معنا','hero.see':'اكتشف أين نعمل',
   'hero.title':'التجارة في <em>كل سوريا.</em>',
   'hero.sub':'نسهّل الأعمال والتجارة في المحافظات الأربع عشرة: النفط والفوسفات والكهرباء والعقارات والخدمات اللوجستية.',
